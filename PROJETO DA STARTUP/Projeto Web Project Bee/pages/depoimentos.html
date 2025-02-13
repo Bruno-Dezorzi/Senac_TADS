@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bee - Inicio</title>
+    <!-- Integração do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/styles/depoimentos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        #map {
+            height: 400px; /* Defina a altura desejada */
+            width: 100%; /* Defina a largura desejada */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cabeçalho com logo -->
+    <header>
+        <!-- Logo -->
+        <img src="/componnts/images/projectbee1.png" id="logo" alt="Logo do Project Bee">
+
+        <!-- Navegação principal -->
+        <nav class="navegacao">
+            <ul class="lista-navegacao">
+                <li><a href="/pages/home.html" class="link-home">Home</a></li>
+                <li><a href="/pages/perfil.html" class="link-perfil">Meu Perfil</a></li>
+                <li><a href="/pages/curso.html" class="link-colmeias">Curso</a></li>
+                <li><a href="/pages/nos.html" class="link-estatisticas">Sobre nós</a></li>
+                <li><a href="/pages/depoimentos.html" class="link-comunidade">Depoimentos</a></li>
+                <li><a href="/pages/colmeias_in.html" class="link-comunidade">Cadastrar Colmeia</a></li>
+            </ul>
+        </nav>
+
+        <!-- Ícone de saída -->
+        <a id="sair" href="/index.html"><img src="/componnts/images/logout_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></a>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <article class="depoimento">
+                        <img src="/componnts/images/icone_homem.png" alt="Avatar" class="avatar">
+                        <p class="texto-depoimento">O sistema de gestão de apicultura do Project Bee revolucionou a forma como gerenciamos nossas colmeias. Agora, temos dados precisos e análises detalhadas que nos ajudam a tomar decisões mais informadas.</p>
+                        <p class="autor-depoimento">- João Silva</p>
+                    </article>
+                </div>
+                <div class="col-md-6">
+                    <article class="depoimento">
+                        <img src="/componnts/images/icone_mulher.png" alt="Avatar" class="avatar">
+                        <p class="texto-depoimento">Estou muito satisfeito com o sistema de gestão de apicultura do Project Bee. Ele simplificou muitas tarefas complicadas e me deu mais tempo para me concentrar no cuidado das minhas abelhas.</p>
+                        <p class="autor-depoimento">- Maria Santos</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Sistema de Gestão de Apicultura. Todos os direitos reservados.</p>
+        </div>
+        <button id="top" onclick="scrollToTop()"><img src="/componnts/images/arrow_upward_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></button>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Seu script personalizado -->
+    <script src="/scripts/colmeis.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        initMap();
+    </script>
+</body>
+
+</html>

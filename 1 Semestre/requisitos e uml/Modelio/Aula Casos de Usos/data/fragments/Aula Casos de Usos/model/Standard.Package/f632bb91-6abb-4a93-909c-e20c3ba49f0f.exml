@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="aula casos de usos" version="4">
+  <OBJECT>
+    <ID name="aula casos de usos" mc="Standard.Package" uid="f632bb91-6abb-4a93-909c-e20c3ba49f0f"/>
+    <PID name="Aula Casos de Usos" mc="Standard.Project" uid="f9811f8c-eae8-482c-8eb7-5e578ad13c9a"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[aula casos de usos]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Funcionário" mc="Standard.Actor" uid="235f9dfc-be13-4cf7-88dc-3988c77c0b3e"/>
+        <COMPID name="Cadastrar Livro" mc="Standard.UseCase" uid="f3b128bc-0177-4dcc-b1dd-68f40d578a12"/>
+        <COMPID name="Empreéstimo" mc="Standard.UseCase" uid="fe433390-7286-4363-9f5a-9da0701a0084"/>
+        <COMPID name="Devolução" mc="Standard.UseCase" uid="68e7f91f-9e11-40b0-b3c9-7154b321da73"/>
+        <COMPID name="Imprimir comprovante" mc="Standard.UseCase" uid="dafe7e3e-871f-4c9e-9a9e-e2a274b4ebf2"/>
+        <COMPID name="Gerenciar Localização do Livro" mc="Standard.UseCase" uid="e0f76c51-4e72-4d46-954b-cf1fd2f0240a"/>
+        <COMPID name="Cadastro de Funcionário" mc="Standard.UseCase" uid="ed08201f-86c9-4191-bea2-3c72843efccf"/>
+        <COMPID name="Administrador" mc="Standard.Actor" uid="9e669170-a940-412f-ba2b-7a5fdf6f0c9d"/>
+        <COMPID name="Tela de Login" mc="Standard.UseCase" uid="3daf7b49-b9c6-40d5-a5a0-404ce5c350eb"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="aula casos de usos Use Case diagram" mc="Standard.UseCaseDiagram" uid="5052bf7a-efbe-4834-aece-e23dc895a667"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bee - Inicio</title>
+    <!-- Integração do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+    <!-- Cabeçalho com logo -->
+    <header>
+        <!-- Logo -->
+        <img src="/componnts/images/projectbee1.png" id="logo" alt="Logo do Project Bee">
+
+        <!-- Navegação principal -->
+        <nav class="navegacao">
+            <ul class="lista-navegacao">
+                <li><a href="/pages/home.html" class="link-home">Home</a></li>
+                <li><a href="/pages/perfil.html" class="link-perfil">Meu Perfil</a></li>
+                <li><a href="/pages/curso.html" class="link-colmeias">Curso</a></li>
+                <li><a href="/pages/nos.html" class="link-estatisticas">Sobre nós</a></li>
+                <li><a href="/pages/depoimentos.html" class="link-comunidade">Depoimentos</a></li>
+                <li><a href="/pages/colmeias_in.html" class="link-comunidade">Cadastrar Colmeia</a></li>
+            </ul>
+        </nav>
+
+        <!-- Ícone de saída -->
+        <a id="sair" href="/index.html"><img src="/componnts/images/logout_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></a>
+    </header>
+    <main>
+        <!-- Seção de destaque -->
+        <section class="destaque">
+            <div class="container">
+                <h2 class="titulo-destaque">Bem-vindo ao Sistema de Gestão de Apicultura</h2>
+                <p class="descricao-destaque">Transformando a gestão das suas colmeias em uma experiência simples e eficiente.</p>
+            </div>
+        </section>
+
+        <!-- Seção de recursos -->
+        <section class="recursos">
+            <div class="container">
+                <div class="row">
+                    <!-- Recurso 1 -->
+                    <div class="col-md-4">
+                        <div class="recurso">
+                            <i class="fas fa-beehive icone-recurso"></i>
+                            <h3 class="titulo-recurso">Gestão de Colmeias</h3>
+                            <p class="descricao-recurso">Gerencie suas colmeias de forma organizada e acompanhe o desenvolvimento das suas abelhas.</p>
+                        </div>
+                    </div>
+                    <!-- Recurso 2 -->
+                    <div class="col-md-4">
+                        <div class="recurso">
+                            <i class="fas fa-chart-line icone-recurso"></i>
+                            <h3 class="titulo-recurso">Estatísticas Avançadas</h3>
+                            <p class="descricao-recurso">Visualize estatísticas detalhadas sobre a produção de mel, saúde das abelhas e muito mais.</p>
+                        </div>
+                    </div>
+                    <!-- Recurso 3 -->
+                    <div class="col-md-4">
+                        <div class="recurso">
+                            <i class="fas fa-users icone-recurso"></i>
+                            <h3 class="titulo-recurso">Comunidade de Apicultores</h3>
+                            <p class="descricao-recurso">Conecte-se com outros apicultores, compartilhe experiências e obtenha insights valiosos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div id="carousel" class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="carousel-img" src="/componnts/images/carrosel/beekepers-colhendo-colmeias.jpg" alt="Primeiro slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="carousel-img" src="/componnts/images/carrosel/homem-de-tiro-medio-trabalhando-com-abelhas.jpg" alt="Segundo slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="carousel-img" src="/componnts/images/carrosel/jarros-de-mel-em-arranjo.jpg" alt="Terceiro slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="carousel-img" src="/componnts/images/carrosel/visao-do-apicultor-coletando-mel-e-cera-de-abelha_181624-40252.avif" alt="Quarto slide">
+                    </div>
+                    <!-- Adicione mais itens conforme necessário -->
+                </div>
+                <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            
+        </section>
+
+        
+        <button id="top" onclick="scrollToTop()"><img src="/componnts/images/arrow_upward_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></button>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Sistema de Gestão de Apicultura. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Seu script personalizado -->
+     <script src="/scripts/home.js"></script>
+</body>
+
+</html>

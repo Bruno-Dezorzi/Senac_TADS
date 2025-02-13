@@ -1,0 +1,63 @@
+/* Estilos personalizados para a página de login */
+
+/* Cores inspiradas em abelhas e campos rurais */
+:root {
+    --cor-primaria: #F2B705; /* Amarelo da abelha */
+    --cor-secundaria: #333; /* Preto */
+    --cor-terciaria: #FFF7E0; /* Amarelo pálido */
+    --cor-destaque: #D97904; /* Laranja das abelhas */
+    --cor-fundo: #FDF5E6; /* Bege claro do campo rural */
+    --font-family: "Space Grotesk", sans-serif; /* Fonte personalizada */
+}
+
+body {
+    font-family: var(--font-family);
+    background-image: url('/componnts/images/apicultores-abrindo-caixas-de-madeira-para-colmeias-foto-de-alta-qualidade.jpg');
+    background-size: 120%, 100%; /* Garante que a imagem cubra todo o elemento */
+    background-position: center; /* Centraliza a imagem vertical e horizontalmente */
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+/* CABEÇALHO */
+
+#logo {
+    max-width: 50%;
+    transform: translateX(10%);
+   
+}
+
+/* Formulário */
+.card-header {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(242, 183, 5, 0.9); /* Cor de fundo com transparência */
+}
+
+
+.card {
+    border: #D97904;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(50%);
+}
+
+.btn.btn-primary.btn-block {
+    /* Estilos específicos para o botão com as classes btn-primary e btn-block */
+    background-color: #F2B705; /* Cor de fundo */
+    border-color: #F2B705; /* Cor da borda */
+    color: #333; /* Cor do texto */
+    font-weight: bold; /* Peso da fonte */
+}
+
+.form-control:focus {
+    border-color: var(--cor-destaque); /* Cor da borda quando em foco */
+    box-shadow: 0 0 0 0.2rem rgba(217, 121, 4, 0.25); /* Sombra quando em foco */
+}
+
+/* Estilos para quando o botão está em foco */
+.btn.btn-primary.btn-block:focus {
+    /* Adicione os estilos que deseja para quando o botão está em foco */
+    outline: none; /* Remove a borda padrão */
+    box-shadow: 0 0 0 0.2rem rgba(217, 121, 4, 0.25); /* Sombra quando em foco */
+}

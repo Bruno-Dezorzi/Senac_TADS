@@ -1,0 +1,17 @@
+Microsoft Word 2010
+
+      %programfiles%\Microsoft Office\Office14\Bibliography\Style
+ 
+-----------------------------------------------------------------------------------------------------------------
+
+Microsoft Word 2013 EDIT:(e também algumas versões do MS OFFICE 2016/365)
+
+     
+   %userprofile%\AppData\Roaming\Microsoft\Bibliography\Style
+
+-----------------------------------------------------------------------------------------------------------------
+ 
+OFFICE 365 / MS OFFICE 2016
+
+    %AppData%\Microsoft\Templates\LiveContent\16\Managed\Word Document Bibliography Styles
+ 

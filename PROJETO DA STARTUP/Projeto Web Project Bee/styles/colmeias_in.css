@@ -1,0 +1,199 @@
+:root {
+    --cor-primaria: #F2B705; /* Amarelo da abelha */
+    --cor-secundaria: #333; /* Preto */
+    --cor-terciaria: #FFF7E0; /* Amarelo pálido */
+    --cor-destaque: #D97904; /* Laranja das abelhas */
+    --cor-fundo: #FDF5E6; /* Bege claro do campo rural */
+    --cor-mel-palido: #FDEBC8;
+    --cor-bege-mel: #FCE2B3;
+    --cor-amarelo-pastel: #FFF3B0;
+    --cor-verde-claro: #E6F5D0;
+    --cor-verde-pastel: #D8E7B4;
+    --cor-laranja-suave: #FDE4C3;
+    --cor-amarelo-claro: #FFF5D1;
+    --cor-creme-suave: #FFF6D8;
+    --font-family: "Space Grotesk", sans-serif; /* Fonte personalizada */
+}
+
+@keyframes anim_back {
+    0% {background-color: var(--cor-terciaria);}
+    12.5% {background-color: var(--cor-mel-palido);}
+    25% {background-color: var(--cor-bege-mel);}
+    37.5% {background-color: var(--cor-amarelo-pastel);}
+    50% {background-color: var(--cor-verde-claro);}
+    62.5% {background-color: var(--cor-verde-pastel);}
+    75% {background-color: var(--cor-laranja-suave);}
+    87.5% {background-color: var(--cor-amarelo-claro);}
+    100% {background-color: var(--cor-creme-suave);}
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--cor-secundaria);
+    animation: anim_back 12s infinite; 
+    margin: 0;
+    padding: 0;
+}
+
+/* CABEÇALHO */
+header {
+    background-color: var(--cor-primaria);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    max-width: 15%; /* Reduzi o tamanho máximo da logo */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-5%);
+}
+
+nav ul li {
+    margin-right: 10%; /* Reduzi a margem entre os itens da lista */
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2vw; /* Reduzi o tamanho da fonte */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--cor-destaque);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#sair {
+    margin-left: 2%; /* Margem do ícone de saída */
+    transform: scale(0.5); /* Reduz o tamanho para 50% */
+}
+
+#sair:hover{
+    animation: spin 5s linear infinite; /* Adiciona a animação de rotação */
+}
+
+#sair img {
+    width: 100%; /* Mantém a largura da imagem dentro do link #sair */
+    height: auto; /* Mantém a proporção da altura */
+    transform: scale(50%);
+}
+
+/* CORPO */
+.form-control {
+    width: 100%;
+    padding: 1.3%;
+    font-size: 1em;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease; /* Transição para o estado de foco */
+}
+
+/* Estilos para os inputs e selects no estado de foco */
+.form-control:focus {
+    border-color: var(--cor-destaque); /* Cor do foco */
+}
+
+/* Estilos para os botões */
+.btn {
+    padding: 1% 2%;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn btn-primary {
+    background-color: var(--cor-destaque);
+    color: #fff;
+}
+
+.btn btn-primary:hover {
+    background-color: #c56d00; /* Escurece o laranja em hover */
+}
+
+/* Estilos para as labels */
+label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+/* Estilos para os selects */
+select {
+    width: 100%;
+    padding: 1%;
+    font-size: 1em;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease; /* Transição para o estado de foco */
+}
+
+/* Estilos para os selects no estado de foco */
+select:focus {
+    border-color: var(--cor-destaque); /* Cor do foco */
+}
+
+/* Estilos para os textareas */
+textarea {
+    width: 100%;
+    padding: 1%;
+    font-size: 1em;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.bt{
+    align-items: center;
+    background-color: darkorange;
+    transform: translateX(450%) translateY(-20%);
+}
+
+#top {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 1000;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    transform: scale(0.5); /* Reduz o tamanho do botão pela metade */
+    background-color: var(--cor-primaria);
+    color: white;
+    width: 10%; /* Largura do botão em porcentagem */
+    height: auto; /* Altura automática para manter a proporção do conteúdo */
+}
+
+
+/* RODAPE */
+
+.rodape {
+    background-color: var(--cor-destaque);
+    color: #fff;
+    text-align: center;
+    padding: 1% 0;
+    bottom: 0;
+    width: 100%;
+}

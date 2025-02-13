@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bee - Inicio</title>
+    <!-- Integração do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/styles/perfil.css">
+</head>
+
+<body>
+    <!-- Cabeçalho com logo -->
+    <header>
+        <!-- Logo -->
+        <img src="/componnts/images/projectbee1.png" id="logo" alt="Logo do Project Bee">
+
+        <!-- Navegação principal -->
+        <nav class="navegacao">
+            <ul class="lista-navegacao">
+                <li><a href="/pages/home.html" class="link-home">Home</a></li>
+                <li><a href="/pages/perfil.html" class="link-perfil">Meu Perfil</a></li>
+                <li><a href="/pages/curso.html" class="link-colmeias">Curso</a></li>
+                <li><a href="/pages/nos.html" class="link-estatisticas">Sobre nós</a></li>
+                <li><a href="/pages/depoimentos.html" class="link-comunidade">Depoimentos</a></li>
+                <li><a href="/pages/colmeias_in.html" class="link-comunidade">Cadastrar Colmeia</a></li>
+            </ul>
+        </nav>
+
+        <!-- Ícone de saída -->
+        <a id="sair" href="/index.html"><img src="/componnts/images/logout_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></a>
+    </header>
+    <main>
+        <section id="meu-perfil" class="profile">
+            <div class="container">
+                <div class="profile-content">
+                    <div class="profile-info row"> <!-- Adiciona a classe row -->
+                        <!-- Informações do perfil do usuário -->
+                        <div class="personal-info col-md-6"> <!-- Adiciona a classe col-md-6 -->
+                            <h2 class="profile-title">Seu Perfil</h2>
+                            <h3>Informações Pessoais</h3>
+                            <p><strong>Nome:</strong> João da Silva</p>
+                            <p><strong>Email:</strong> joao.silva@example.com</p>
+                            <p><strong>Cidade:</strong> São Paulo</p>
+                            <p><strong>Estado:</strong> SP</p>
+                            <p><strong>Idade:</strong> 35 anos</p>
+                            <p><strong>Gênero:</strong> Masculino</p>
+                        </div>
+                        <div class="apiculture-info col-md-6"> <!-- Adiciona a classe col-md-6 -->
+                            <!-- Informações relacionadas à apicultura -->
+                            <h3>Informações de Apicultura</h3>
+                            <p><strong>Experiência em apicultura (anos):</strong> 5</p>
+                            <p><strong>Quantidade de colmeias:</strong> 20</p>
+                            <p><strong>Preferência de abelhas:</strong> Abelhas Europeias</p>
+                            <p><strong>Maior desafio na apicultura:</strong> Controlar a varroa</p>
+                            <p><strong>Clima onde se encontra:</strong> Tropical Úmido</p>
+                            <p><strong>Produção mensal de própolis:</strong> 5 kg</p>
+                            <p><strong>Produção mensal de mel:</strong> 200 kg</p>
+                            <p><strong>Produção mensal de pólen:</strong> 50 kg</p>
+                            <p><strong>Espécie da abelha:</strong> Apis mellifera</p>
+                            <p><strong>Outras informações:</strong> Apicultor apaixonado pela preservação ambiental e pela qualidade do mel orgânico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Sistema de Gestão de Apicultura. Todos os direitos reservados.</p>
+        </div>
+        <button id="top" onclick="scrollToTop()"><img src="/componnts/images/arrow_upward_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></button>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Seu script personalizado -->
+    <script src="script.js"></script>
+</body>
+
+</html>

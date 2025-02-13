@@ -1,0 +1,109 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFF7E0;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.04%; /* (20px / 1920px) * 100 */
+}
+
+.header {
+    background-color: #F2B705;
+    padding: 1.04% 0; /* (20px / 1920px) * 100 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.46vw; /* (28px / 1920px) * 100 */
+    font-weight: bold;
+    padding-left: 2.08%; /* (40px / 1920px) * 100 */
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 1.04%; /* (20px / 1920px) * 100 */
+}
+
+.nav-menu li:first-child {
+    margin-left: 0;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.83vw; /* (16px / 1920px) * 100 */
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #D97904; /* Change hover color */
+}
+
+.hero {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5.21% 0; /* (100px / 1920px) * 100 */
+    color: #000000cd;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.5vw; /* (48px / 1920px) * 100 */
+    margin-bottom: 1.04%; /* (20px / 1920px) * 100 */
+}
+
+.hero-description {
+    font-size: 1.25vw; /* (24px / 1920px) * 100 */
+}
+
+.features {
+    padding: 5.21% 0; /* (100px / 1920px) * 100 */
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 2.08%; /* (40px / 1920px) * 100 */
+}
+
+.feature-icon {
+    color: #D97904;
+}
+
+.feature-title {
+    font-size: 1.67vw; /* (32px / 1920px) * 100 */
+    margin-bottom: 1.04%; /* (20px / 1920px) * 100 */
+}
+
+.feature-description {
+    font-size: 0.94vw; /* (18px / 1920px) * 100 */
+}
+
+
+.footer {
+    background-color: #BF4903;
+    color: #fff;
+    text-align: center;
+    padding: 1.04% 0; /* (20px / 1920px) * 100 */
+    transform: translate(0,100%);
+}

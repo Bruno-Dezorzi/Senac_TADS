@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bee - Inicio</title>
+    <!-- Integração do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/styles/colmeias_in.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        #map {
+            height: 400px; /* Defina a altura desejada */
+            width: 100%; /* Defina a largura desejada */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cabeçalho com logo -->
+    <header>
+        <!-- Logo -->
+        <img src="/componnts/images/projectbee1.png" id="logo" alt="Logo do Project Bee">
+
+        <!-- Navegação principal -->
+        <nav class="navegacao">
+            <ul class="lista-navegacao">
+                <li><a href="/pages/home.html" class="link-home">Home</a></li>
+                <li><a href="/pages/perfil.html" class="link-perfil">Meu Perfil</a></li>
+                <li><a href="/pages/curso.html" class="link-colmeias">Curso</a></li>
+                <li><a href="/pages/nos.html" class="link-estatisticas">Sobre nós</a></li>
+                <li><a href="/pages/depoimentos.html" class="link-comunidade">Depoimentos</a></li>
+                <li><a href="/pages/colmeias_in.html" class="link-comunidade">Cadastrar Colmeia</a></li>
+            </ul>
+        </nav>
+
+        <!-- Ícone de saída -->
+        <a id="sair" href="/index.html"><img src="/componnts/images/logout_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></a>
+    </header>
+    <main>
+        <section>
+            <form>
+                <div class="form-group">
+                    <label for="nomeColmeia">Nome da Colmeia:</label>
+                    <input type="text" id="nomeColmeia" class="form-control" placeholder="Digite o nome da colmeia">
+                </div>
+    
+                <div class="form-group">
+                    <label for="numeroColmeia">Número:</label>
+                    <input type="number" id="numeroColmeia" class="form-control" placeholder="Digite o número da colmeia">
+                </div>
+    
+                <div class="form-group">
+                    <label for="especieAbelha">Espécie de Abelha:</label>
+                    <select id="especieAbelha" class="form-control">
+                        <option value="apis_mellifera">Apis mellifera (Abelha Europeia)</option>
+                        <option value="apis_cerana">Apis cerana (Abelha Asiática)</option>
+                        <option value="apis_florea">Apis florea (Abelha Dwarf)</option>
+                        <option value="apis_andreniformis">Apis andreniformis (Abelha Dwarf Oriental)</option>
+                        <option value="apis_dorsata">Apis dorsata (Abelha Gigante Asiática)</option>
+                        <option value="apis_laboriosa">Apis laboriosa (Abelha Himalaia)</option>
+                        <option value="melipona_quadrifasciata">Melipona quadrifasciata (Uruçu Nordestina)</option>
+                        <option value="melipona_rufiventris">Melipona rufiventris (Uruçu Amarela)</option>
+                        <!-- Outras espécies -->
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="produtoFoco">Produto em Foco:</label>
+                    <select id="produtoFoco" class="form-control">
+                        <option value="mel">Mel</option>
+                        <option value="propolis">Própolis</option>
+                        <option value="polen">Pólen</option>
+                        <option value="geleia_real">Geleia Real</option>
+                        <option value="cera">Cera de Abelha</option>
+                        <option value="apitoxina">Apitoxina (Veneno de Abelha)</option>
+                        <option value="rainha">Rainha de Abelha</option>
+                        <!-- Outros produtos -->
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="localizacao">Localização:</label>
+                    <input type="text" id="localizacao" class="form-control" placeholder="Digite a localização da colmeia">
+                </div>
+    
+                <div class="form-group">
+                    <label for="dataInstalacao">Data de Instalação:</label>
+                    <input type="date" id="dataInstalacao" class="form-control">
+                </div>
+    
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" class="form-control" rows="3" placeholder="Digite observações adicionais"></textarea>
+                </div>
+    
+                <!-- Novos conjuntos de labels e inputs -->
+                <div class="form-group">
+                    <label for="tipoColmeia">Tipo de Colmeia:</label>
+                    <select id="tipoColmeia" class="form-control">
+                        <option value="langstroth">Langstroth</option>
+                        <option value="dadant">Dadant</option>
+                        <option value="warré">Warré</option>
+                        <option value="top-bar">Top-Bar</option>
+                        <option value="horizontal">Horizontal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="condicaoColmeia">Condição da Colmeia:</label>
+                    <select id="condicaoColmeia" class="form-control">
+                        <option value="ativa">Ativa</option>
+                        <option value="inativa">Inativa</option>
+                        <option value="abandonada">Abandonada</option>
+                        <option value="doente">Doente</option>
+                        <option value="enxameando">Enxameando</option>
+                        <option value="forte">Forte</option>
+                        <option value="fraca">Fraca</option>
+                        <!-- Outras condições -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="problemaColmeia">Problemas da Colmeia:</label>
+                    <input type="text" id="problemaColmeia" class="form-control" placeholder="Descreva problemas ou desafios">
+                </div>
+                
+                <div class="form-group">
+                    <label for="responsavel">Responsável pela Colmeia:</label>
+                    <input type="text" id="responsavel" class="form-control" placeholder="Nome da pessoa responsável">
+                </div>
+                <button type="submit" class="bt bt-primary" onclick="cadastrar()">Cadastrar Colmeia</button>
+                
+            </form>
+        </section>
+        <button id="top" onclick="scrollToTop()"><img src="/componnts/images/arrow_upward_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></button>
+    </main>
+    
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Sistema de Gestão de Apicultura. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Seu script personalizado -->
+    <script src="/scripts/colmeis.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+
+</html>

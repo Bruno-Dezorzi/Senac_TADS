@@ -1,0 +1,31 @@
+:root{
+
+    /*Primárias*/
+    --amarelo:#D9BA1E;
+    --amarelo-branco:#F2E49B;
+    --amarelo-escuro:#BF9E39;
+    --branco: #F1ECE2;
+    --preto: #28241B;
+
+    --azul-branco:#A9BED9; 
+    --verde: #435942;
+    --amarelo: #BF9004;
+    --marromqueimado: #A66D03;
+    --marrom: #A65D03;
+
+
+    --fonte: font-family: "Oswald", sans-serif;
+}
+
+body {
+    background-image: url("/Projeto Web - Project Bee/imagens/pexels-arthurbrognoli-2260933.jpg");
+    background-size: 100% 5000%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+
+.box{
+    bor
+}
