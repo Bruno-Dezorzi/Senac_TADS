@@ -1,0 +1,79 @@
+
+/* Redefine alguns estilos padrão do navegador */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define uma cor de fundo e fonte para o corpo */
+body {
+    background-color: #c07474;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #faf8f8;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.roboto-style {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  
+
+/* Estiliza o contêiner principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estiliza o cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Estiliza o menu de navegação */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estiliza o conteúdo principal */
+main {
+    padding: 20px;
+}
+
+/* Estiliza o rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
