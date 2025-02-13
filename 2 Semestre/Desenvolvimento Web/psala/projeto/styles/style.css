@@ -1,0 +1,49 @@
+body{
+    color: #443355;
+}
+h1{
+    color: rgb(28, 0, 30);
+}
+h2{
+    color: rgba(24,45,0,1);
+}
+p{
+    color: hsl();
+}
+
+a{
+    color: purple;
+}
+
+a:visited{
+    color: #e4d1d1;
+}
+
+a:hover{
+    color: #FBBC05;
+}
+/* id  usar numa única tag no atributo id*/
+#titulo{
+    text-align: center;
+    color: #f9d5e5;
+}
+
+/* classe usar no atributo class de qualquer tag*/
+.centralizado{
+    text-align: center;
+}
+
+/*seletor universal * */
+
+* {
+    text-align: center;
+    color: cadetblue;
+}
+
+h1, h2, p{
+    color:greenyellow;
+}
+
+
+
+
