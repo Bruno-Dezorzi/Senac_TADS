@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b6a3bd76-f0eb-448f-b159-a75ce5f8aa1b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/exerciciosPOO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio08/Biblioteca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio08/Livro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio08/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio08/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio1/Carro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio1/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio2/Aluno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio2/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio3/ContaBancaria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio3/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio4/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio4/Retangulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio5/Livro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio5/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio6/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio6/Tabuada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio7/Imovel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/agosto/exercicio7/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv1/Carro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv1/Marca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv1/Modelo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv1/Principal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv2/Bolo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv2/Padaria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv2/Pao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exerciciosPOO/src/br/com/brunodezorzi/poo/julho/atv2/Principal.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/exerciciosPOO" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2lGFK86STIjbo4CeYtGoqaT2bpx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/HP Victus/OneDrive/SENAC/3 semestre/exerciociosPoo3"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b6a3bd76-f0eb-448f-b159-a75ce5f8aa1b" name="Changes" comment="" />
+      <created>1724798440002</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724798440002</updated>
+    </task>
+    <servers />
+  </component>
+</project>
