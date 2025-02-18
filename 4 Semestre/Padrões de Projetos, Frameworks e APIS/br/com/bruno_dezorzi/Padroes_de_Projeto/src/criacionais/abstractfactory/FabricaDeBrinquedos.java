@@ -1,6 +1,6 @@
 package criacionais.abstractfactory;
 
-public interface FabricaDeBrinquedos {
+public abstract interface FabricaDeBrinquedos {
 
     Ursinho criarUrsinho();
 
