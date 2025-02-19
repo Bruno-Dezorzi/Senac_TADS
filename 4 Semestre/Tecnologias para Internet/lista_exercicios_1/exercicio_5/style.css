@@ -1,0 +1,46 @@
+body{
+    background-color: aqua;
+}
+
+h1{
+    color: yellowgreen;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+section{
+    display: inline;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#labeltarefa{
+    align-self: center;
+}
+
+#tarefa{
+    width: 400px;
+    align-self: center;
+}
+
+.botao{
+    width: 200x;
+    align-self: center;
+}
+
+#lista{
+    background-color: aliceblue;
+    margin: auto;
+    width: 500px;
+    height: 700px;
+}
+
+.item{
+    margin: auto;
+    width: 400px;
+}
