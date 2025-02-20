@@ -12,4 +12,9 @@ public class FabricaDePelucia implements FabricaDeBrinquedos {
         return new CoelhoPelucia();
     }
 
+    @Override
+    public Tartaruga criarTartaruga() {
+        return new TartaturaDePelucia();
+    }
+
 }

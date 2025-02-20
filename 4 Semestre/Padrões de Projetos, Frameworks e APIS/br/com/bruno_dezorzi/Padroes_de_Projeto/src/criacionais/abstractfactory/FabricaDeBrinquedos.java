@@ -6,4 +6,6 @@ public abstract interface FabricaDeBrinquedos {
 
     Coelho criarCoelho();
 
+    Tartaruga criarTartaruga();
+
 }

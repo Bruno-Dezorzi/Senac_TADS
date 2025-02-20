@@ -12,4 +12,9 @@ public class FabricaDePlastico implements FabricaDeBrinquedos {
         return new CoelhoPlastico();
     }
 
+    @Override
+    public Tartaruga criarTartaruga() {
+        return new TartarugaDePlastico();
+    }
+
 }
