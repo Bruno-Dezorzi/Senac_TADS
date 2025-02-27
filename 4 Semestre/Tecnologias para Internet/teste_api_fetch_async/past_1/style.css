@@ -1,26 +1,21 @@
-body{
+body {
     background-color: cadetblue;
-}
-
-#dados_cep{
     display: flex;
-    flex-direction: column;
-    margin: auto;
-    position: relative;
-    text-align: center;
-    position: relative;
-    width: 1000px;
-    background-color: rgb(108, 108, 250);
-    height: 700px;
-    top: 50px;
-    border: red 3px;
-    border-color: brown;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-#inputlabutton{
-    margin: auto;
-    position: relative;
+#container {
+    width: 1000px;
     text-align: center;
-    position: relative;
-    top: 25px;
+}
+
+#dados_cep {
+    background-color: rgb(108, 108, 250);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 18px;
 }

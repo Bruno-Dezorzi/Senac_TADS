@@ -3,43 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste API Fecth</title>
+    <title>Consulta CEP</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
-    <div id ="inputlabutton">
-        <label for="cep">Insira seu CEP para visualizar as informações dele</label>
-        <br>
-        <br>
-        <input type="text", name="cep", id= "inputCep", placeholder="CEP">
-        <br>
-        <br>
-        <button type="button" onclick="buscarCep()">Buscar Cep</button>
+    <div id="container">
+        <div id="inputlabutton">
+            <label for="cep">Insira seu CEP para visualizar as informações dele:</label>
+            <br>
+            <input type="text" id="inputCep" placeholder="CEP">
+            <button onclick="buscarCep()">Buscar</button>
+        </div>
+        <div id="dados_cep">
+            <p id="cep"></p>
+            <p id="logradouro"></p>
+            <p id="bairro"></p>
+            <p id="cidade"></p>
+            <p id="estado"></p>
+            <p id="ibge"></p>
+            <p id="gia"></p>
+            <p id="ddd"></p>
+            <p id="siafi"></p>
+        </div>
     </div>
-    
-
-    <!--Abaixo os campos da API-->
-
-    
-
-    <div id="dados_cep">
-        <p id = "cep"></p>
-        <p id = "logradouro"></p>
-        <p id = "complemento"></p>
-        <p id = "unidade"></p>
-        <p id = "bairro"></p>
-        <p id = "localidade"></p>
-        <p id = "uf"></p>
-        <p id = "estado"></p>
-        <p id = "regiao"></p>
-        <p id = "ibge"></p>
-        <p id = "gia"></p>
-        <p id = "ddd"></p>
-        <p id = "logrdouro"></p>
-        <p id = "siafi"></p>
-    </div>
-
 </body>
 </html>

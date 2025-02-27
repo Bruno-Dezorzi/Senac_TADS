@@ -3,11 +3,30 @@ body {
 }
 
 label {
-  display: block;
-  margin-top: 10px;
+  display: grid;
+  margin-top: 20px;
+  width: 100%;
 }
 input {
   width: 100%;
   padding: 8px;
-  margin-top: 5px;
+  
 }
+
+button {
+  padding: 8px;
+  background-color: blueviolet;
+}
+
+#formulario{
+  width: 45%;
+  height: 491px;
+}
+
+/*#informacoes{
+  width: 50%;
+  height: 491px;
+  background-color: red;
+  margin-left:  65%;
+  margin-right:  65%;
+}*/
