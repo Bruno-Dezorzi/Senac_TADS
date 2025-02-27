@@ -1,0 +1,26 @@
+body{
+    background-color: cadetblue;
+}
+
+#dados_cep{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    position: relative;
+    width: 1000px;
+    background-color: rgb(108, 108, 250);
+    height: 700px;
+    top: 50px;
+    border: red 3px;
+    border-color: brown;
+}
+
+#inputlabutton{
+    margin: auto;
+    position: relative;
+    text-align: center;
+    position: relative;
+    top: 25px;
+}
