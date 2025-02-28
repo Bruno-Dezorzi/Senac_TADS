@@ -1,0 +1,41 @@
+.principal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+body{
+    width: auto;
+    height: auto;
+    background-color: #cacaca;
+}
+
+#informacoes{
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgb(255, 255, 255);
+    width: 700px;
+    height: 665px;
+    text-align: center;
+    border: solid aquamarine 5px;
+    border-radius: 50px;
+}
+
+.pg{
+    background-color: rgb(230, 157, 157);
+    border: solid blue 3px;
+    border-radius: 50px;
+    padding: 30px;
+}
+
+#nome{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
