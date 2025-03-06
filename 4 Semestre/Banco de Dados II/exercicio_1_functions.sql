@@ -257,3 +257,72 @@ LANGUAGE plpgsql;
 -- SELECT * FROM pedidos
 
 SELECT remover_pedido(1)
+
+-- 8 
+
+DROP FUNCTION IF EXISTS registrar_pagamento(int4,NUMERIC,bpchar(1));
+
+CREATE OR REPLACE FUNCTION registrar_pagamento(id_pedido_ INT4, valor_pago_ NUMERIC, metodo_ BPCHAR(1),data_pagamento_ date)
+RETURNS VOID
+AS
+$$
+BEGIN
+    -- Inserindo o pagamento corretamente usando os parâmetros da função
+    INSERT INTO pagamentos (id_pedido, valor_pago, metodo,data_pagamento)
+    VALUES (id_pedido_, valor_pago_, metodo_,data_pagamento_);
+
+    -- Atualizando o status do pedido para "pago"
+    UPDATE pedidos
+    SET status = 'pago'
+    WHERE id_pedido = id_pedido_;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+SELECT * FROM pedidos p 
+
+SELECT * FROM pagamentos
+
+SELECT registrar_pagamento(1,200.00,'D',current_date::date)
+
+-- 9 
+
+DROP FUNCTION IF EXISTS listar_produtos_fornecedor(INT);
+
+CREATE OR REPLACE FUNCTION listar_produtos_fornecedor(id_fornecedor_ INT)
+RETURNS TABLE (nome varchar(225), preco numeric)
+as
+$$
+	begin
+	return query
+		select
+			produtos.nome,
+			produtos.preco
+		from produtos
+		where produtos.id_fornecedor = id_fornecedor_;
+	end;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM listar_produtos_fornecedor(3)
+
+-- 10
+
+
+DROP FUNCTION IF EXISTS calcular_receita_total();
+
+CREATE OR REPLACE FUNCTION calcular_receita_total() 
+RETURNS TABLE (soma numeric)
+as
+$$
+	begin
+	return query
+		select
+			sum(valor_pago) as soma
+		from pagamentos;
+	end;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM calcular_receita_total();
