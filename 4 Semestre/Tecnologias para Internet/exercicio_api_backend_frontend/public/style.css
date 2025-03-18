@@ -1,0 +1,91 @@
+/* Layout Principal */
+body {
+    display: grid;
+    height: 100vh;
+    margin: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px; /* Espaço entre as divs */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilo Geral das Divs */
+.div_principal {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Para alinhar os elementos na vertical */
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+/* Posicionamento correto do título */
+.div_principal h1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Estilização das cores das divs */
+#div_get {
+    background-color: blue;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#div_put {
+    background-color: green;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#div_post {
+    background-color: orange;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#div_delete {
+    background-color: red;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* Estilização do Formulário */
+form {
+    margin-top: 40px; /* Para o form não sobrepor o h1 */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilização dos Inputs */
+input {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Estilização dos Botões */
+button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: lightgray;
+}
