@@ -1,0 +1,9 @@
+2. Factory Method – Cadastro de Notificações
+Implemente um sistema que gerencie notificações via Factory Method. O sistema deve
+permitir a criação de notificações de diferentes tipos (E-mail, SMS e Push Notification). Cada
+tipo deve ter um método enviar(), e a fábrica deve ser capaz de criar objetos da classe
+correta com base na entrada do usuário.
+Desafio: Adicionar um novo tipo de notificação sem modificar a fábrica principal.
+
+
+link : https://refactoring.guru/pt-br/design-patterns/factory-method

@@ -1,0 +1,10 @@
+1. Builder – Construção de Personagens em um Jogo
+Crie um sistema para a criação de personagens em um jogo RPG. O personagem pode ter
+diferentes classes (Mago, Guerreiro, Arqueiro), armas e habilidades. Use o padrão Builder
+para permitir a criação de personagens passo a passo, garantindo flexibilidade na construção
+dos atributos.
+Desafio: Permitir a criação de personagens a partir de diferentes configurações predefinidas
+(ex: "Mago Supremo" já vem com cajado e feitiços avançados).
+
+
+link : https://refactoring.guru/pt-br/design-patterns/builder
