@@ -11,14 +11,22 @@
     <div id = 'div_get' class = 'div_principal'>
         <h1>GET</h1>
         <form action="">
-            <button type="button" onclick="buscarPessoas()" class="b-page">Pessoa</button>
-            <button type="button" onclick="buscarPessoas()" class="b-page">Usuário</button>
+            <button type="button" onclick="window.location.href='/pessoa'" class="b-page">Pessoa</button>
+            <button type="button" onclick="window.location.href='/usuario'" class="b-page">Usuário</button>
 
             <label for="">Digite o ID de uma pessoa para procura-lá</label>
-            <input type="text" placeholder="ID Pessoa">
+            <div class = 'div_get'>
+                <input type="search" placeholder="ID Pessoa" class = "input_get">
+                <button class = "button_get" type="button" onclick="buscarPessoaPorId(id)">Procurar</button>
+            </div>
+            
             
             <label for="">Digite o ID de um usuário para procura-lá</label>
-            <input type="text" placeholder="ID Usuario">
+            <div class = 'div_get'>
+                <input type="search" placeholder="ID Usuario"  class = "input_get">
+            <button class = "button_get" type="button" onclick="buscarUsuarioPorId(id)">Procurar</button>
+            </div>
+            
         </form>
     </div>
 

@@ -1,14 +1,50 @@
 function buscarPessoas() {
     fetch('/pessoa')
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            const container = document.querySelector('.pessoas'); 
+            container.innerHTML = ''; // Limpa o conteúdo antes de inserir novos dados
+
+            if (data.length === 0) {
+                container.innerHTML = '<p>Nenhuma pessoa encontrada.</p>';
+                return;
+            }
+
+            data.forEach(pessoa => {
+                const div = document.createElement('div');
+                div.classList.add('pessoa-item'); // Classe para estilização
+                div.innerHTML = `
+                    <p><strong>ID:</strong> ${pessoa.id} - 
+                    <strong>Nome:</strong> ${pessoa.nome}</p>
+                    <button onclick="buscarPessoaPorId(${pessoa.id})">Buscar</button>
+                `;
+                container.appendChild(div);
+            });
+        })
         .catch(error => console.error('Erro ao buscar pessoas:', error));
 }
+
 
 function buscarPessoaPorId(id) {
     fetch(`/pessoa/${id}`)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+
+            const container = document.querySelector('.pessoa');
+            container.innerHTML = ''; // Limpa o conteúdo antes de inserir novos dados
+
+            if (!data) {
+                container.innerHTML = `<p>Nenhuma pessoa encontrada com ID ${id}.</p>`;
+                return;
+            }
+
+            const div = document.createElement('div');
+            div.classList.add('pessoa-item');
+            div.innerHTML = `<p><strong>ID:</strong> ${data.id} - <strong>Nome:</strong> ${data.nome}</p>`;
+            container.appendChild(div);
+
+        })
         .catch(error => console.error(`Erro ao buscar pessoa com ID ${id}:`, error));
 }
 
@@ -46,6 +82,15 @@ function deletarPessoa(id) {
     .then(data => console.log(data))
     .catch(error => console.error(`Erro ao deletar pessoa com ID ${id}:`, error));
 }
+
+/**
+ * Como usar
+ * buscarPessoas(); // Lista todas as pessoas
+buscarPessoaPorId(1); // Busca pessoa com ID 1
+inserirPessoa('Carlos'); // Insere uma nova pessoa chamada Carlos
+atualizarPessoa(2, 'Ana Clara'); // Atualiza pessoa com ID 2 para o nome Ana Clara
+deletarPessoa(3); // Deleta pessoa com ID 3
+ */
 
 /**
  * Como usar

@@ -73,6 +73,22 @@ input {
     border: none;
 }
 
+.input_get{
+    width: 300px;
+}
+
+.button_get{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+.div_get{
+    display: inline-block;
+    margin-right: 0px;
+    align-items: center;
+}
+
 /* Estilização dos Botões */
 button {
     padding: 10px;

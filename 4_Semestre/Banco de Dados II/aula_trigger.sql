@@ -102,3 +102,51 @@ insert into emp ( salary) values ( 20000);
 insert into emp (empname, salary) values ('Juquinha2', -20000);
 
 END
+
+
+CREATE OR REPLACE FUNCTION process_emp_audit() 
+RETURNS TRIGGER 
+AS 
+$emp_audit$
+BEGIN
+	IF (TG_OP = 'DELETE') THEN
+	INSERT INTO emp_audit SELECT 'D', user, OLD.EMPNAME, OLD.SALARY, now();
+	RETURN OLD;
+	ELSIF (TG_OP = 'UPDATE') THEN
+	INSERT INTO emp_audit SELECT 'U', user, NEW.EMPNAME, NEW.SALARY, now();
+	RETURN NEW;
+	ELSIF (TG_OP = 'INSERT') THEN
+	INSERT INTO emp_audit SELECT 'I', user, NEW.EMPNAME, NEW.SALARY, now();
+	RETURN NEW;
+	END IF;
+	RETURN NULL; -- result is ignored since this is an AFTER trigger
+END;
+$emp_audit$ 
+LANGUAGE plpgsql;
+
+CREATE TRIGGER emp_audit
+AFTER INSERT OR UPDATE OR DELETE 
+ON emp FOR EACH ROW EXECUTE PROCEDURE process_emp_audit();
+
+
+insert into emp (empname, salary) values ('Juquinha Segundo', 20000)
+select * from emp
+update emp set empname='Juquinha Snaidis' where empname='Juquinha Segundo'
+select * from emp_audit
+delete from emp where empname='Juquinha Snaidis'
+select * from emp_audit
+
+
+CREATE OR REPLACE FUNCTION verificar_salario()
+returns trigger
+AS
+	$emp$
+		BEGIN
+			IF NEW.salary is null then RAISE EXCEPTION 'salary cannot be null'; END IF;
+		END;
+	$emp$ LANGUAGE plpgsql;
+
+CREATE Trigger verificar_salario_trigger BEFORE INSERT or UPDATE on emp
+for EACH row EXECUTE PROCEDURE verificar_salario();
+
+

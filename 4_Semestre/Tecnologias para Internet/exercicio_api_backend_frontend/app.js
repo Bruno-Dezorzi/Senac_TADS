@@ -23,14 +23,17 @@ const conn = new Pool({
 });
 
 conn.connect()
-    .then(() => {
+    .then(async() => {
         console.log("Conectado ao PostgreSQL");
-        inicializarBanco();
+        await inicializarBanco();
+        await adicionarDadosTeste();
     })
     .catch(err => console.error("Erro de conexão: ", err));
 
     async function inicializarBanco() {
         const queries = [
+            `DROP TABLE IF EXISTS usuario;`,
+            `DROP TABLE IF EXISTS pessoa;`,
             `CREATE TABLE IF NOT EXISTS usuario (
                 id SERIAL PRIMARY KEY,  
                 nome TEXT NOT NULL,
@@ -39,9 +42,7 @@ conn.connect()
             `CREATE TABLE IF NOT EXISTS pessoa (
                 id SERIAL PRIMARY KEY,  
                 nome TEXT NOT NULL
-            );`,
-            `TRUNCATE TABLE usuario;`,
-            `TRUNCATE TABLE pessoa;`
+            );`
         ];
     
         for (const query of queries) {
@@ -54,6 +55,69 @@ conn.connect()
             }
         }
     }
+
+    async function adicionarDadosTeste(){
+        const queries = [
+            `INSERT INTO usuario (nome, email) 
+            VALUES 
+                ('João Silva', 'joao.silva@email.com'),
+                ('Maria Souza', 'maria.souza@email.com'),
+                ('Carlos Pereira', 'carlos.pereira@email.com'),
+                ('Ana Oliveira', 'ana.oliveira@email.com'),
+                ('Pedro Santos', 'pedro.santos@email.com'),
+                ('Fernanda Lima', 'fernanda.lima@email.com'),
+                ('Lucas Rocha', 'lucas.rocha@email.com'),
+                ('Juliana Mendes', 'juliana.mendes@email.com'),
+                ('Ricardo Nunes', 'ricardo.nunes@email.com'),
+                ('Camila Costa', 'camila.costa@email.com'),
+                ('Bruno Martins', 'bruno.martins@email.com'),
+                ('Larissa Ferreira', 'larissa.ferreira@email.com'),
+                ('Gustavo Almeida', 'gustavo.almeida@email.com'),
+                ('Patricia Ramos', 'patricia.ramos@email.com'),
+                ('Rafael Barbosa', 'rafael.barbosa@email.com'),
+                ('Vanessa Teixeira', 'vanessa.teixeira@email.com'),
+                ('Tiago Cardoso', 'tiago.cardoso@email.com'),
+                ('Beatriz Farias', 'beatriz.farias@email.com'),
+                ('Rodrigo Cunha', 'rodrigo.cunha@email.com'),
+                ('Natália Duarte', 'natalia.duarte@email.com');`,
+            `INSERT INTO pessoa (nome) 
+            VALUES 
+                ('João Silva'),
+                ('Maria Souza'),
+                ('Carlos Pereira'),
+                ('Ana Oliveira'),
+                ('Pedro Santos'),
+                ('Fernanda Lima'),
+                ('Lucas Rocha'),
+                ('Juliana Mendes'),
+                ('Ricardo Nunes'),
+                ('Camila Costa'),
+                ('Bruno Martins'),
+                ('Larissa Ferreira'),
+                ('Gustavo Almeida'),
+                ('Patricia Ramos'),
+                ('Rafael Barbosa'),
+                ('Vanessa Teixeira'),
+                ('Tiago Cardoso'),
+                ('Beatriz Farias'),
+                ('Rodrigo Cunha'),
+                ('Natália Duarte');`
+
+        ];
+        for (const query of queries){
+            console.log("Executando a inserção..")
+            try{
+                await conn.query(query);
+                console.log("Insert com sucesso")
+            }
+            catch (error){
+                console.log("Erro: ", error)
+            }
+        }
+    }
+
+
+
 
 
 // Rotas

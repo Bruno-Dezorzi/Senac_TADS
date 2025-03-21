@@ -1,0 +1,38 @@
+1 - Definição de Triggers: O que são triggers em um banco de dados ativo e para que servem?
+    Triggers são gatilhos que podemos construir no banco de dados, primeiramente se constroi uma função trigger, e após isso o gatilho dela que faz com que deterterminada ação no banco faça ela ser acionada.
+
+2 - Criação de Tabela: Escreva o código SQL para criar a tabela ator com as colunas idator (chave primária) e nome.
+    CREATE TABLE ator(
+        idator serial primary key,
+        nome varchar(100)
+    );
+
+3 - Trigger por Mudança de Dados: Explique o que acontece quando o trigger log_ator é acionado após uma inserção na tabela ator.
+    Ele aplica na coluna ultima_atualização o horario que o registro foi motificado
+
+4 - Funções de Triggers: Qual a diferença entre NEW e OLD em triggers? Em quais operações cada um pode ser utilizado?
+    NEW: Contem a nova linha do banco, e pode ser usada em INSERT e UPDATE -> NEW de novo dado a ser atualizado ou adicionar registro
+    OLD: Contem a antiga linha do banco, e pode ser usada em DELETE e UPDATE -> OLD velho dado  ser atualizado ou a ser deletado
+5 - Execução de Triggers: O que significa definir uma trigger como BEFORE, AFTER ou INSTEAD OF? 
+    É definir se ela vai executada antes(before), depois(after) ou realizar a alteração em um view (INSTEAD OF)
+
+6 - Tipos de Operações: O que o valor da variável TG_OP indica dentro de uma trigger?
+    Ela serve para indicar qual operação do banco disparou a trigger
+
+7 - Criação de Trigger Antes da Inserção: Escreva o código SQL para criar uma trigger que verifique se o salário de um funcionário (salary) é maior que 0 antes de inseri-lo na tabela emp.
+    CREATE OR REPLACE FUNCTION verificar_salario()
+    returns trigger
+    AS
+        $emp$
+            BEGIN
+                IF NEW.salary is null then RAISE EXCEPTION 'salary cannot be null'; END IF;
+            END;
+        $emp$ LANGUAGE plpgsql;
+
+    CREATE Trigger verificar_salario_trigger BEFORE INSERT or UPDATE on emp
+    for EACH row EXECUTE PROCEDURE verificar_salario();
+
+
+8 - Trigger de Auditoria: Como funciona o trigger emp_audit e qual sua utilidade?
+9 - Execução de um Trigger: O que acontece quando uma linha é deletada da tabela emp, considerando o trigger process_emp_audit?
+10 - Triggers em Views: Qual é a principal utilidade do tipo de trigger INSTEAD OF?
