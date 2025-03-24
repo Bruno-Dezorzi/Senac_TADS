@@ -1,0 +1,15 @@
+2. (FUNDATEC-Pref.Capivari	do	Sul-RS,2024) Em	relação	ao	tipo	de	estrutura	de	dados	
+conhecido	como	lista	ligada	ou	lista	encadeada,	é	correto	afirmar	que: 	
+a. Um	elemento	deve	entrar	por	uma	extremidade	e	ser	removido	pela	outra	
+extremidade.	
+b. Não	é	uma	estrutura	flexível,	pois	há	necessidade	de	definição	de	um	tamanho	
+máximo	de	elementos.	
+c. O	primeiro	elemento	que	entrar	só	poderá	ser	removido	por	último,	após	todos	os	
+outros	elementos	serem	removidos.	
+d. É	uma	estrutura	multidimensional	e	homogênea.	
+e. A	sucessão	dos	elementos	é	determinada	por	um	ponteiro	que	indica	a	posição	do	
+próximo	elemento.	
+
+
+LETRA E
+

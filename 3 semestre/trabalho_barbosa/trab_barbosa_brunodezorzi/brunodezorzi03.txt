@@ -1,0 +1,26 @@
+
+/*
+3 – Crie uma query para trazer todas as tabelas de preço ativas, que estão vigentes e que possua algum produto 
+associado a tal tabela e que este produto tenha um peso maior que X e 
+que tenha sido utilizado em um pedido para o parceiro X.
+*/
+
+-- o peso vai ser > 1,64
+
+
+SELECT 
+	tp.idtabelapreco, 
+	tp.descricao, 
+	tp.descontomaximo, 
+	tp.codigo, 
+	tp.iniciovigencia, 
+	tp.fimvigencia, 
+	tp.idnativo
+FROM public.tabelapreco tp
+INNER JOIN tabelaprecoproduto t ON t.idtabelapreco = tp.idtabelapreco 
+INNER JOIN produto p ON p.idproduto = t.idproduto 
+INNER JOIN pedido p2 ON p2.idtabelapreco  = t.idtabelapreco 
+INNER JOIN usuario u ON u.idusuario = p2.idusuario 
+WHERE tp.idnativo = 1
+AND p.peso > 1.64
+AND u.nome LIKE 'Bob';

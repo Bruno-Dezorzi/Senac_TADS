@@ -1,0 +1,18 @@
+CREATE TABLE usuarios (
+	id serial ,
+	email varchar(255) ,
+	
+	senha varchar(255) ,
+	id_pessoa integer
+);
+
+CREATE TABLE pessoa (
+	id serial ,
+	nome varchar(255) ,
+	id_endereco integer
+);
+CREATE TABLE pessoa_fisica (
+	id serial ,
+	id_pessoa integer,
+	cpf varchar(11) 
+);

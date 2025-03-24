@@ -1,0 +1,13 @@
+Dados os conjuntos A e B abaixo:
+A={Alfa Romeo, AlphaTauri, Alpine, Aston Martin, Ferrari, Haas, McLaren, Mercedes, Williams e Red Bull}
+B={Ferrari, McLaren, Sauber, Jordan, Williams, Jaguar, Red Bull, Toyota, Minardi, Mercedes, Benetton}
+Explique e exemplifique, com os conjuntos acima, um INNER JOIN, LEFT JOIN, RIGHT JOIN E CROSS JOIN.
+
+
+INNER JOIN ira pegar todos os valores que aparecem tanto NO conjunto A quanto NO B
+
+LEFT JOIN ira trazer somentes todos os valores em A e os valores de B que tem referencia com o A
+
+RIGHT JOIN ira trazer somentes todos os valores em B e os valores de A que tem referencia com o B
+
+CROSS JOIN ira multiplicar os registro A^B, cada elemento de A vai ter um elemento de B, NO caso, vai ter 11 registros onde o Alfa Romeo vai se conectar com cada registro de B

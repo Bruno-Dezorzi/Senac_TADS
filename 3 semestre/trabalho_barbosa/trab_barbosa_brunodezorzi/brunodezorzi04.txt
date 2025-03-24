@@ -1,0 +1,34 @@
+
+-- Exercício 4
+SELECT 
+pe.idpedido, 
+pe.numero, 
+pe.valortotal, 
+pe.quantidadeprodutos,
+pe.data_pedido,
+pe.observacao, 
+p.nome ,
+p.nomefantasia ,
+u.nome ,
+u.email ,
+t.descricao ,
+c.descricao ,
+p2.descricao ,
+p2.codigo  ,
+t2.preco,
+pa.nome ,
+e2.silga ,
+t3.numero 
+FROM public.pedido pe
+LEFT JOIN parceiro p ON p.idparceiro = pe.idparceiro 
+LEFT JOIN usuario u  ON u.idusuario  = pe.idusuario  
+LEFT JOIN tabelapreco t ON t.idtabelapreco = pe.idtabelapreco 
+LEFT JOIN condicaopagamento c ON c.idcondicaopagamento  = pe.idcondicaopagamento 
+LEFT JOIN pedidoproduto p3 ON p3.idpedido = pe.idpedido 
+LEFT JOIN produto p2 ON p2.idproduto = p3.idproduto 
+LEFT JOIN tabelaprecoproduto t2 ON t2.idproduto = p2.idproduto 
+LEFT JOIN endereco e ON e.idusuario  = u.idusuario 
+LEFT JOIN cidade ci ON ci.idcidade  = e.idcidade 
+LEFT JOIN estado e2 ON e2.idestado = ci.idestado 
+LEFT JOIN pais pa ON pa.idpais = e2.idpais 
+LEFT JOIN telefone t3 ON t3.idparceiro = p.idparceiro ;

@@ -1,0 +1,49 @@
+DROP TABLE IF EXISTS contatos;
+
+
+CREATE TABLE contatos (
+    nome_contato VARCHAR(100),
+    telefone VARCHAR(15),
+    endereco_eletronico VARCHAR(100)
+);
+
+
+INSERT INTO contatos (nome_contato, telefone, endereco_eletronico) VALUES
+('Thor Martelador', '123456789', 'thor.martelador@gmail.com'),
+('Luna Eclipse', '987654321', 'luna.eclipse@yahoo.com'),
+('Pedroca Codador', '456123789', 'pedroca.codador@ig.com'),
+('Felícia Smile', '789123456', 'felicia.smile@gmail.com'),
+('Lorde Pixel', '321654987', 'lorde.pixel@yahoo.com'),
+('Zelda Heroína', '654987321', 'zelda.heroina@gmail.com'),
+('Otto Loop', '147258369', 'otto.loop@ig.com'),
+('Fiona Tigresa', '258369147', 'fiona.tigresa@gmail.com'),
+('Mestre Yodi', '369147258', 'mestre.yodi@yahoo.com'),
+('Bartolomeu Codeiro', '159753486', 'bartolomeu.codeiro@gmail.com');
+
+
+
+ALTER TABLE contatos
+RENAME COLUMN endereco_eletronico TO email;
+
+
+ALTER TABLE contatos
+ADD COLUMN salario float;
+
+
+UPDATE contatos
+SET salario = RANDOM() * 5000 + 2000;
+
+SELECT * FROM contatos
+
+
+TRUNCATE TABLE contatos;
+
+DROP TABLE IF EXISTS contatos;
+
+
+CREATE TABLE contatos (
+    nome_contato VARCHAR(100),
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    salario float CHECK (salario >= 0)
+);

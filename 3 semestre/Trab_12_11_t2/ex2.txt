@@ -1,0 +1,148 @@
+
+DROP TABLE IF EXISTS relacao_alocacao_funcao;
+DROP TABLE IF EXISTS alocacao;
+DROP TABLE IF EXISTS servidor;
+DROP TABLE IF EXISTS vinculo;
+DROP TABLE IF EXISTS funcao;
+DROP TABLE IF EXISTS cargo;
+DROP TABLE IF EXISTS escolaridade;
+DROP TABLE IF EXISTS departamento;
+
+CREATE TABLE escolaridade (
+    id_escolaridade SERIAL PRIMARY KEY,
+    descricao VARCHAR(80)
+);
+
+
+CREATE TABLE cargo (
+    id_cargo SERIAL PRIMARY KEY,
+    nome VARCHAR(80),
+    salario DOUBLE PRECISION,
+    id_escolaridade INTEGER,
+    FOREIGN KEY (id_escolaridade) REFERENCES escolaridade(id_escolaridade)
+);
+
+
+CREATE TABLE funcao (
+    id_funcao SERIAL PRIMARY KEY,
+    nome VARCHAR(80),
+    descricao VARCHAR(200),
+    id_escolaridade INTEGER,
+    FOREIGN KEY (id_escolaridade) REFERENCES escolaridade(id_escolaridade)
+);
+
+
+CREATE TABLE departamento (
+    id_departamento SERIAL PRIMARY KEY,
+    nome VARCHAR(80),
+    descricao VARCHAR(200)
+);
+
+
+CREATE TABLE vinculo (
+    id_vinculo SERIAL PRIMARY KEY,
+    obs VARCHAR(200),
+    descricao VARCHAR(200)
+);
+
+
+CREATE TABLE servidor (
+    id_funcionario SERIAL PRIMARY KEY,
+    nome VARCHAR(80),
+    matricula VARCHAR(15),
+    data_nascimento DATE,
+    data_admissao DATE,
+    endereco VARCHAR(80),
+    bairro VARCHAR(80),
+    cidade VARCHAR(15),
+    cep VARCHAR(15),
+    uf CHAR(2),
+    telefone VARCHAR(15),
+    email VARCHAR(80),
+    senha VARCHAR(15),
+    id_cargo INTEGER,
+    id_vinculo INTEGER,
+    FOREIGN KEY (id_cargo) REFERENCES cargo(id_cargo),
+    FOREIGN KEY (id_vinculo) REFERENCES vinculo(id_vinculo)
+);
+
+
+CREATE TABLE alocacao (
+    id_alocacao SERIAL PRIMARY KEY,
+    data_saida DATE,
+    data_inicio DATE,
+    id_departamento INTEGER,
+    id_funcionario INTEGER,
+    FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento),
+    FOREIGN KEY (id_funcionario) REFERENCES servidor(id_funcionario)
+);
+
+
+CREATE TABLE relacao_alocacao_funcao (
+    id_alocacao SERIAL,
+    id_funcao INTEGER,
+    id_rel_aloc INTEGER PRIMARY KEY,
+    FOREIGN KEY (id_alocacao) REFERENCES alocacao(id_alocacao),
+    FOREIGN KEY (id_funcao) REFERENCES funcao(id_funcao)
+);
+
+
+
+INSERT INTO escolaridade (descricao) VALUES
+('Fundamentalão'),
+('Médiozão'),
+('Técnico Master'),
+('Super Graduação'),
+('Pós-Doctor');
+
+INSERT INTO cargo (nome, salario, id_escolaridade) VALUES
+('Mestre dos Magos', 3500.00, 4),
+('Sombra e Água Fresca', 2000.00, 2),
+('Chefão de TI', 7000.00, 5),
+('Zé do RH', 5000.00, 4);
+
+INSERT INTO funcao (nome, descricao, id_escolaridade) VALUES
+('Programador Ninja', 'Desenha códigos como um mestre.', 4),
+('Auxiliar de Sofrimento', 'Faz o corre da bagunça administrativa.', 2),
+('Chefe do Caos', 'Faz o TI virar magia.', 5);
+
+INSERT INTO departamento (nome, descricao) VALUES
+('TI do Barulho', 'Onde os códigos são escritos a luz da lua.'),
+('Recursos Humanos da Treta', 'Onde o caos da empresa é controlado.'),
+('Escritório do Agito', 'Cuidando dos papéis e processos da empresa.');
+
+INSERT INTO vinculo (obs, descricao) VALUES
+('CLT na Veia', 'Trabalhador de carteira assinada, estilo raiz'),
+('PJ dos Deuses', 'Trabalhador como Pessoa Jurídica, com muito glamour'),
+('Estagiário da Galáxia', 'Trabalha como estagiário, mas com cara de CEO');
+
+INSERT INTO servidor (nome, matricula, data_nascimento, data_admissao, endereco, bairro, cidade, cep, uf, telefone, email, senha, id_cargo, id_vinculo) VALUES
+('Carlos “O Corredor” Silva', '123456789', '1985-03-22', '2015-06-10', 'Rua das Mágicas, 10', 'Centro dos Anjos', 'São Paulo', '01010-010', 'SP', '11987654321', 'carlos@empresa.com', 'senha123', 1, 1),
+('Ana “Só na Paz” Souza', '987654321', '1990-07-15', '2020-03-15', 'Rua dos Pás, 20', 'Bela Vista Mágica', 'São Paulo', '01020-020', 'SP', '11976543210', 'ana@empresa.com', 'senha321', 2, 2),
+('Marcos “Explosão” Lima', '123987456', '1982-11-05', '2018-01-20', 'Rua do Caos, 30', 'Morumbi', 'São Paulo', '01030-030', 'SP', '11965432109', 'marcos@empresa.com', 'senha456', 3, 1),
+('Fernanda “A Lenda” Costa', '741258369', '1995-02-10', '2021-07-01', 'Rua do Grito, 40', 'Jardim Paulista', 'São Paulo', '01040-040', 'SP', '11954321098', 'fernanda@empresa.com', 'senha789', 4, 3),
+('Roberta “Cinderela” Oliveira', '159753456', '1988-09-25', '2016-11-13', 'Rua do Sol, 50', 'Vila Progresso', 'São Paulo', '01050-050', 'SP', '11943210987', 'roberta@empresa.com', 'senha000', 1, 1),
+('João “Não Vai Dar Ruim” Pedro', '357159486', '1992-06-19', '2019-09-22', 'Rua do Susto, 60', 'Pinheiros', 'São Paulo', '01060-060', 'SP', '11932109876', 'joao@empresa.com', 'senha1234', 2, 2),
+('Luana “Tá Chegando” Pereira', '951753258', '1994-12-04', '2022-03-01', 'Rua do Fim, 70', 'Vila Nova', 'São Paulo', '01070-070', 'SP', '11921098765', 'luana@empresa.com', 'senha5678', 3, 3),
+('Lucas “Barulho” Martins', '159357486', '1991-08-14', '2017-04-10', 'Rua das Trevas, 80', 'Campo Limpo', 'São Paulo', '01080-080', 'SP', '11910987654', 'lucas@empresa.com', 'senha2468', 4, 1),
+('Beatriz “Assombração” Almeida', '741456852', '1986-01-30', '2014-05-15', 'Rua das Almas, 90', 'Bairro Alegre', 'São Paulo', '01090-090', 'SP', '11909876543', 'beatriz@empresa.com', 'senha1357', 1, 2),
+('Pedro “Caveirão” Ribeiro', '963258741', '1983-03-13', '2011-11-12', 'Rua do Inferno, 100', 'Jardim Europa', 'São Paulo', '01100-100', 'SP', '11908765432', 'pedro@empresa.com', 'senha2460', 3, 3),
+('Mariana “Coração de Pedra” Rocha', '258741963', '1989-10-21', '2017-10-12', 'Rua do Sufoco, 110', 'Vila São José', 'São Paulo', '01110-110', 'SP', '11907654321', 'mariana@empresa.com', 'senha4789', 4, 1),
+('Ricardo “Iluminado” Almeida', '147258369', '1993-05-08', '2022-01-01', 'Rua dos Sabores, 120', 'Jardim Paulista', 'São Paulo', '01120-120', 'SP', '11906543210', 'ricardo@empresa.com', 'senha3698', 2, 2),
+('Camila “Superstar” Ferreira', '369852741', '1996-12-15', '2023-04-25', 'Rua do Glória, 130', 'Centro', 'São Paulo', '01130-130', 'SP', '11905432109', 'camila@empresa.com', 'senha1359', 3, 3);
+
+INSERT INTO alocacao (data_saida, data_inicio, id_departamento, id_funcionario) VALUES
+('2024-12-31', '2024-01-01', 1, 1),
+('2024-12-31', '2024-02-01', 2, 2),
+('2024-12-31', '2024-03-01', 3, 3),
+('2024-12-31', '2024-04-01', 1, 4),
+('2024-12-31', '2024-05-01', 2, 5);
+
+INSERT INTO relacao_alocacao_funcao (id_alocacao, id_funcao) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 1),
+(5, 2);
+
+
