@@ -9,4 +9,5 @@ public class ControleRemotoAvancado extends ControleRemoto {
   public void silenciar() {
     System.out.println("Silenciar dispositivo");
   }
+  
 }

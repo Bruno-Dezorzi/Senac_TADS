@@ -6,13 +6,14 @@ public class Principal {
     Dispositivo tv = new Televisao();
     Dispositivo radio = new Radio();
 
-    ControleRemoto controleRemotoBasico = new ControleRemotoBasico(tv);
-    ControleRemoto controleRemotoAvancado = new ControleRemotoAvancado(radio);
+    ControleRemotoBasico controleRemotoBasico = new ControleRemotoBasico(tv);
+    ControleRemotoAvancado controleRemotoAvancado = new ControleRemotoAvancado(radio);
 
     controleRemotoBasico.ligar();
     controleRemotoBasico.aumentarVolume();
 
     controleRemotoAvancado.ligar();
     controleRemotoAvancado.aumentarVolume();
+    controleRemotoAvancado.silenciar();
   }
 }

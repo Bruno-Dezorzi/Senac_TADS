@@ -5,7 +5,6 @@ public class Principal {
   public static void main(String[] args) {
     Cafe cafeSimples = new CafeSimples();
     System.out.println(
-      cafeSimples.getDescricao() + "= R$ " + cafeSimples.getPreco()
-    );
+        cafeSimples.getDescricao() + "= R$ " + cafeSimples.getPreco());
   }
 }
