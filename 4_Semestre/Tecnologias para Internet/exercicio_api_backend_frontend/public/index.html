@@ -8,38 +8,76 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div id = 'div_get' class = 'div_principal'>
+    <!-- GET -->
+    <div id='div_get' class='div_principal'>
         <h1>GET</h1>
         <form action="">
             <button type="button" onclick="window.location.href='/pessoa'" class="b-page">Pessoa</button>
             <button type="button" onclick="window.location.href='/usuario'" class="b-page">Usuário</button>
 
             <label for="">Digite o ID de uma pessoa para procura-lá</label>
-            <div class = 'div_get'>
-                <input type="search" placeholder="ID Pessoa" class = "input_get">
-                <button class = "button_get" type="button" onclick="buscarPessoaPorId(id)">Procurar</button>
+            <div class='div_get'>
+                <input type="search" placeholder="ID Pessoa" class="input_get">
+                <button class="button_get" type="button" onclick="buscarPessoaPorId()">Procurar</button>
             </div>
-            
             
             <label for="">Digite o ID de um usuário para procura-lá</label>
-            <div class = 'div_get'>
-                <input type="search" placeholder="ID Usuario"  class = "input_get">
-            <button class = "button_get" type="button" onclick="buscarUsuarioPorId(id)">Procurar</button>
+            <div class='div_get'>
+                <input type="search" placeholder="ID Usuario" class="input_get">
+                <button class="button_get" type="button" onclick="buscarUsuarioPorId()">Procurar</button>
             </div>
-            
         </form>
     </div>
 
-    <div id = 'div_put' class = 'div_principal'>
+    <!-- PUT -->
+    <div id='div_put' class='div_principal'>
         <h1>PUT</h1>
+        <form action="">
+            <label for="">Digite o ID da pessoa ou usuário para atualizar:</label>
+            <div class='div_get'>
+                <input type="search" placeholder="ID Pessoa" class="input_get">
+                <button class="button_get" type="button" onclick="atualizarPessoa()">Atualizar</button>
+            </div>
+            <div class='div_get'>
+                <input type="search" placeholder="ID Usuário" class="input_get">
+                <button class="button_get" type="button" onclick="atualizarUsuario()">Atualizar</button>
+            </div>
+        </form>
     </div>
 
-    <div id = 'div_post' class = 'div_principal'>
+    <!-- POST -->
+    <div id='div_post' class='div_principal'>
         <h1>POST</h1>
+        <form action="">
+            <label for="">Digite os dados para criar uma nova pessoa:</label>
+            <div class='div_get'>
+                <input type="text" placeholder="Nome da Pessoa" class="input_get">
+                <button class="button_get" type="button" onclick="inserirPessoa()">Criar Pessoa</button>
+            </div>
+            
+            <label for="">Digite os dados para criar um novo usuário:</label>
+            <div class='div_get'>
+                <input type="text" placeholder="Nome do Usuário" class="input_get">
+                <input type="email" placeholder="Email do Usuário" class="input_get">
+                <button class="button_get" type="button" onclick="inserirPessoa()">Criar Usuário</button>
+            </div>
+        </form>
     </div>
 
-    <div id = 'div_delete' class = 'div_principal'>
+    <!-- DELETE -->
+    <div id='div_delete' class='div_principal'>
         <h1>DELETE</h1>
+        <form action="">
+            <label for="">Digite o ID da pessoa ou usuário para excluir:</label>
+            <div class='div_get'>
+                <input type="search" placeholder="ID Pessoa" class="input_get">
+                <button class="button_get" type="button" onclick="deletarPessoa()">Excluir</button>
+            </div>
+            <div class='div_get'>
+                <input type="search" placeholder="ID Usuário" class="input_get">
+                <button class="button_get" type="button" onclick="deletarUsuario()">Excluir</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

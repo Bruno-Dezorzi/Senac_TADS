@@ -8,7 +8,7 @@ app.use(express.static('public'))
 const conn = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: 'admin',
+    password: '123456', //'admin',
     database: 'node',
     port: 5432, // Certifique-se de que essa é a porta correta
 });

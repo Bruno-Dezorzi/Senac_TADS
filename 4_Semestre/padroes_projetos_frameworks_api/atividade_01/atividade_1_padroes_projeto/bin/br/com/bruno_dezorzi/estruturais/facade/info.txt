@@ -1,0 +1,7 @@
+3. Facade – Gerenciamento de Pedidos em um Restaurante 
+Crie um sistema para gerenciar pedidos em um restaurante, onde há várias classes envolvidas 
+(Pedido, Cozinha, Entrega, Pagamento). Utilize Facade para fornecer uma interface simples 
+que permita ao cliente fazer um pedido sem se preocupar com a complexidade interna do 
+processo. 
+Desafio: Implementar um sistema de acompanhamento do pedido que informa em qual etapa 
+ele está (Preparação, Pronto, Saiu para entrega).

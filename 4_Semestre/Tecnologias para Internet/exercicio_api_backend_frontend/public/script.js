@@ -1,36 +1,13 @@
-function buscarPessoas() {
-    fetch('/pessoa')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.querySelector('.pessoas'); 
-            container.innerHTML = ''; // Limpa o conteúdo antes de inserir novos dados
+function buscarPessoaPorId() {
+    const id = document.getElementById('idPessoa').value; // Pega o valor do input
+    if (!id) {
+        alert('Por favor, insira um ID');
+        return;
+    }
 
-            if (data.length === 0) {
-                container.innerHTML = '<p>Nenhuma pessoa encontrada.</p>';
-                return;
-            }
-
-            data.forEach(pessoa => {
-                const div = document.createElement('div');
-                div.classList.add('pessoa-item'); // Classe para estilização
-                div.innerHTML = `
-                    <p><strong>ID:</strong> ${pessoa.id} - 
-                    <strong>Nome:</strong> ${pessoa.nome}</p>
-                    <button onclick="buscarPessoaPorId(${pessoa.id})">Buscar</button>
-                `;
-                container.appendChild(div);
-            });
-        })
-        .catch(error => console.error('Erro ao buscar pessoas:', error));
-}
-
-
-function buscarPessoaPorId(id) {
     fetch(`/pessoa/${id}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-
             const container = document.querySelector('.pessoa');
             container.innerHTML = ''; // Limpa o conteúdo antes de inserir novos dados
 
@@ -40,63 +17,131 @@ function buscarPessoaPorId(id) {
             }
 
             const div = document.createElement('div');
-            div.classList.add('pessoa-item');
-            div.innerHTML = `<p><strong>ID:</strong> ${data.id} - <strong>Nome:</strong> ${data.nome}</p>`;
+            div.innerHTML = `
+                <p><strong>ID:</strong> ${data.id}</p>
+                <p><strong>Nome:</strong> ${data.nome}</p>
+            `;
             container.appendChild(div);
-
         })
-        .catch(error => console.error(`Erro ao buscar pessoa com ID ${id}:`, error));
+        .catch(error => {
+            console.error('Erro ao buscar pessoa:', error);
+            alert('Ocorreu um erro ao buscar a pessoa. Tente novamente mais tarde.');
+        });
 }
 
-function inserirPessoa(nome) {
+function adicionarPessoa() {
+    const nome = document.getElementById('nomePessoa').value;
+    if (!nome) {
+        alert('Por favor, insira um nome');
+        return;
+    }
+
     fetch('/pessoa', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nome })
+        body: JSON.stringify({ nome: nome }),
     })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error('Erro ao inserir pessoa:', error));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao adicionar pessoa');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert(data);
+        document.getElementById('nomePessoa').value = ''; // Limpa o campo
+    })
+    .catch(error => {
+        console.error('Erro ao adicionar pessoa:', error);
+        alert('Ocorreu um erro ao adicionar a pessoa. Tente novamente mais tarde.');
+    });
 }
 
-function atualizarPessoa(id, novoNome) {
+function atualizarPessoa() {
+    const id = document.getElementById('idPessoaAtualizar').value;
+    const nome = document.getElementById('novoNomePessoa').value;
+    if (!id || !nome) {
+        alert('Por favor, insira um ID e um novo nome');
+        return;
+    }
+
     fetch(`/pessoa/${id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nome: novoNome })
+        body: JSON.stringify({ nome: nome }),
     })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error(`Erro ao atualizar pessoa com ID ${id}:`, error));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao atualizar pessoa');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert(data);
+    })
+    .catch(error => {
+        console.error('Erro ao atualizar pessoa:', error);
+        alert('Ocorreu um erro ao atualizar a pessoa. Tente novamente mais tarde.');
+    });
 }
 
-function deletarPessoa(id) {
+function deletarPessoa() {
+    const id = document.getElementById('idPessoaDeletar').value;
+    if (!id) {
+        alert('Por favor, insira um ID');
+        return;
+    }
+
     fetch(`/pessoa/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
     })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error(`Erro ao deletar pessoa com ID ${id}:`, error));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao deletar pessoa');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert(data);
+    })
+    .catch(error => {
+        console.error('Erro ao deletar pessoa:', error);
+        alert('Ocorreu um erro ao deletar a pessoa. Tente novamente mais tarde.');
+    });
 }
 
-/**
- * Como usar
- * buscarPessoas(); // Lista todas as pessoas
-buscarPessoaPorId(1); // Busca pessoa com ID 1
-inserirPessoa('Carlos'); // Insere uma nova pessoa chamada Carlos
-atualizarPessoa(2, 'Ana Clara'); // Atualiza pessoa com ID 2 para o nome Ana Clara
-deletarPessoa(3); // Deleta pessoa com ID 3
- */
+function adicionarUsuario() {
+    const nome = document.getElementById('nomeUsuario').value;
+    const email = document.getElementById('emailUsuario').value;
+    if (!nome || !email) {
+        alert('Por favor, insira um nome e um e-mail');
+        return;
+    }
 
-/**
- * Como usar
- * buscarPessoas(); // Lista todas as pessoas
-buscarPessoaPorId(1); // Busca pessoa com ID 1
-inserirPessoa('Carlos'); // Insere uma nova pessoa chamada Carlos
-atualizarPessoa(2, 'Ana Clara'); // Atualiza pessoa com ID 2 para o nome Ana Clara
-deletarPessoa(3); // Deleta pessoa com ID 3
- */
+    fetch('/usuario', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nome: nome, email: email }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao adicionar usuário');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert(data);
+        document.getElementById('nomeUsuario').value = ''; // Limpa o campo
+        document.getElementById('emailUsuario').value = ''; // Limpa o campo
+    })
+    .catch(error => {
+        console.error('Erro ao adicionar usuário:', error);
+        alert('Ocorreu um erro ao adicionar o usuário. Tente novamente mais tarde.');
+    });
+}

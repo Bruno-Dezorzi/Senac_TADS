@@ -1,0 +1,7 @@
+6. Decorator – Personalização de Bebidas em uma Cafeteria 
+Implemente um sistema de personalização de bebidas em uma cafeteria utilizando Decorator. 
+O cliente pode escolher uma bebida base (Café, Chá, Chocolate Quente) e adicionar 
+ingredientes extras como leite, chantilly, caramelo e chocolate. Cada extra altera o preço final 
+da bebida. 
+Desafio: Implementar um sistema de cupons de desconto que reduz o preço final do pedido 
+sem modificar as classes das bebidas.

@@ -1,0 +1,7 @@
+4. Composite – Estrutura de Diretórios e Arquivos 
+Implemente um sistema que represente uma estrutura de arquivos e diretórios utilizando o 
+padrão Composite. Um diretório pode conter arquivos e outros diretórios, e cada item (arquivo ou diretório)
+deve ser tratado de forma uniforme, permitindo operações como listar conteúdo e 
+calcular tamanho total. 
+Desafio: Adicionar permissões de leitura e escrita para arquivos e diretórios, aplicando-as de 
+forma hierárquica.

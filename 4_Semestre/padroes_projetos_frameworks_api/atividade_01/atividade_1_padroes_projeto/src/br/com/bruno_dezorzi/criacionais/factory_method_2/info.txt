@@ -1,0 +1,20 @@
+7. Factory Method – Fábrica de Veículos 
+Implemente um sistema de fabricação de veículos utilizando o padrão Factory Method. A 
+fábrica deve ser capaz de criar diferentes tipos de veículos, como Carro e Caminhão, podendo 
+ser elétricos ou a combustão. Cada veículo deve ter comportamentos específicos, como dirigir 
+para carros e transportar para caminhões. 
+Requisitos: 
+●  Criar uma interface Veiculo com métodos comuns. 
+●  Criar classes concretas para os veículos: 
+○  CarroEletrico e CarroCombustao devem implementar o método 
+dirigir(). 
+○  CaminhaoEletrico e CaminhaoCombustao devem implementar o método 
+transportar(). 
+●  Criar uma fábrica de veículos (FabricaVeiculo) com o método criarVeiculo(), 
+que retorna uma instância do tipo correto. 
+●  Implementar fábricas concretas para cada tipo de veículo (FabricaCarro e 
+FabricaCaminhao). 
+Desafio: 
+Adicionar um novo tipo de veículo, como Motos, sem modificar as fábricas existentes. 
+ 
+ 

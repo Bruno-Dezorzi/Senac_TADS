@@ -1,0 +1,7 @@
+5. Bridge – Dispositivos e Controles Remotos 
+Implemente um sistema para controlar dispositivos eletrônicos (TV, Rádio e Projetor) usando 
+diferentes tipos de controles remotos (Básico e Avançado). Utilize o padrão Bridge para 
+permitir que novos dispositivos ou novos controles possam ser adicionados sem modificar as 
+classes existentes. 
+Desafio: Criar um controle avançado que adicione funcionalidades como modo silencioso e 
+configuração de timer para desligamento.
