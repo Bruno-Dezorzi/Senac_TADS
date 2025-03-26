@@ -30,7 +30,6 @@ public class Embalagem implements Item {
     return total;
   }
 
-  public void setPreco(double preco) {}
 
   public List<Item> getItens() {
     return itens;
