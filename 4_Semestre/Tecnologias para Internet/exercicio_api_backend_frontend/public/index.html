@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +17,14 @@
 
             <label for="">Digite o ID de uma pessoa para procura-lá</label>
             <div class='div_get'>
-                <input type="search" placeholder="ID Pessoa" class="input_get">
-                <button class="button_get" type="button" onclick="buscarPessoaPorId()">Procurar</button>
+                <input type="search" placeholder="ID Pessoa" class="input_get" id="buscarPessoaPorId">
+                <button class="button_get" type="button" id="buscarPessoaPorIdBotao">Procurar</button>
             </div>
             
             <label for="">Digite o ID de um usuário para procura-lá</label>
             <div class='div_get'>
-                <input type="search" placeholder="ID Usuario" class="input_get">
-                <button class="button_get" type="button" onclick="buscarUsuarioPorId()">Procurar</button>
+                <input type="search" placeholder="ID Usuario" class="input_get" id = "buscarUsuarioPorId">
+                <button class="button_get" type="button" id="buscarUsuarioPorIdBotao">Procurar</button>
             </div>
         </form>
     </div>
@@ -51,7 +51,7 @@
         <form action="">
             <label for="">Digite os dados para criar uma nova pessoa:</label>
             <div class='div_get'>
-                <input type="text" placeholder="Nome da Pessoa" class="input_get">
+                <input type="text" placeholder="Nome da Pessoa" class="input_get" id="AdicionarPessoa">
                 <button class="button_get" type="button" onclick="inserirPessoa()">Criar Pessoa</button>
             </div>
             
@@ -59,7 +59,7 @@
             <div class='div_get'>
                 <input type="text" placeholder="Nome do Usuário" class="input_get">
                 <input type="email" placeholder="Email do Usuário" class="input_get">
-                <button class="button_get" type="button" onclick="inserirPessoa()">Criar Usuário</button>
+                <button class="button_get" type="button" onclick="inserirUsuario()">Criar Usuário</button>
             </div>
         </form>
     </div>

@@ -11,7 +11,8 @@ app.use(express.static("public"));
 const conn = new Pool({
   host: "localhost",
   user: "postgres",
-  password: "123456", //'admin',
+  //password: "123456", 
+  password: 'admin',
   database: "node",
   port: 5432,
 });
@@ -238,7 +239,7 @@ app.get("/pessoa", async (req, res) => {
     res.json(resposta); // Retorna as pessoas em formato JSON
   } catch (error) {
     console.error("Erro ao buscar pessoas:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -247,12 +248,12 @@ app.get("/pessoa/:id", async (req, res) => {
   try {
     let resposta = await buscarPessoaPorId(req.params.id);
     if (!resposta) {
-      return res.status(404).json({ message: "Pessoa não encontrada" });
+      return res.json({ message: "Pessoa não encontrada" });
     }
     res.json(resposta);
   } catch (error) {
     console.error("Erro ao buscar pessoa:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -260,10 +261,10 @@ app.get("/pessoa/:id", async (req, res) => {
 app.post("/pessoa", async (req, res) => {
   try {
     await inserirPessoa(req.body.nome);
-    res.status(201).send("Pessoa inserida com sucesso!");
+    res.send("Pessoa inserida com sucesso!");
   } catch (error) {
     console.error("Erro ao inserir pessoa:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -274,7 +275,7 @@ app.put("/pessoa/:id", async (req, res) => {
     res.send("Pessoa atualizada com sucesso!");
   } catch (error) {
     console.error("Erro ao atualizar pessoa:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -285,7 +286,7 @@ app.delete("/pessoa/:id", async (req, res) => {
     res.send("Pessoa deletada com sucesso!");
   } catch (error) {
     console.error("Erro ao deletar pessoa:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -296,7 +297,7 @@ app.get("/usuario", async (req, res) => {
     res.json(resposta); // Retorna as usuarios em formato JSON
   } catch (error) {
     console.error("Erro ao buscar usuarios:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -309,17 +310,17 @@ app.get("/usuario/:id", async (req, res) => {
     res.json(resposta);
   } catch (error) {
     console.error("Erro ao buscar usuário:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
 app.post("/usuario", async (req, res) => {
   try {
     await inserirUsuario(req.body.nome, req.body.email);
-    res.status(201).send("Usuário inserido com sucesso!");
+    res.send("Usuário inserido com sucesso!");
   } catch (error) {
     console.error("Erro ao inserir usuário:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -329,7 +330,7 @@ app.put("/usuario/:id", async (req, res) => {
     res.send("Usuário atualizado com sucesso!");
   } catch (error) {
     console.error("Erro ao atualizar usuário:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 
@@ -339,7 +340,7 @@ app.delete("/usuario/:id", async (req, res) => {
     res.send("Usuário deletado com sucesso!");
   } catch (error) {
     console.error("Erro ao deletar usuário:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
+    res.json({ message: "Erro ao processar a requisição" });
   }
 });
 

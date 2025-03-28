@@ -1,147 +1,54 @@
-function buscarPessoaPorId() {
-    const id = document.getElementById('idPessoa').value; // Pega o valor do input
-    if (!id) {
-        alert('Por favor, insira um ID');
-        return;
-    }
+window.onload = (e) => {
+    var buscarPessoaPorIdBotao = document.getElementById("buscarPessoaPorIdBotao");
 
-    fetch(`/pessoa/${id}`)
-        .then(response => response.json())
-        .then(data => {
-            const container = document.querySelector('.pessoa');
-            container.innerHTML = ''; // Limpa o conteúdo antes de inserir novos dados
+    buscarPessoaPorIdBotao.addEventListener("click", function (e) {
+        const id = document.getElementById('buscarPessoaPorId').value; 
 
-            if (!data) {
-                container.innerHTML = `<p>Nenhuma pessoa encontrada com ID ${id}.</p>`;
-                return;
-            }
+        if (!id) {
+            alert("Por favor, insira um ID Pessoa");
+            return; 
+        }
 
-            const div = document.createElement('div');
-            div.innerHTML = `
-                <p><strong>ID:</strong> ${data.id}</p>
-                <p><strong>Nome:</strong> ${data.nome}</p>
-            `;
-            container.appendChild(div);
+        window.location.href = `/pessoa/${id}`;
+    });
+
+    var buscarUsuarioPorIdBotao = document.getElementById("buscarUsuarioPorIdBotao");
+
+    buscarUsuarioPorIdBotao.addEventListener("click", function (e) {
+        const id = document.getElementById('buscarUsuarioPorId').value; 
+
+        if (!id) {
+            alert("Por favor, insira um ID Usuario");
+            return; 
+        }
+
+        window.location.href = `/usuario/${id}`;
+    });
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+
+    function inserirPessoa() {
+        const nomePessoa = document.getElementById('AdicionarPessoa').value;
+    
+        // Verificar se o nome foi fornecido
+        if (!nomePessoa) {
+            alert("Por favor, insira o nome da pessoa.");
+            return;
+        }
+    
+        // Enviar os dados para a rota do backend
+        fetch('/pessoa', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome: nomePessoa }) // Envia o nome da pessoa no corpo da requisição
         })
+        .then(response => response.text()) // Espera a resposta do servidor em texto
         .catch(error => {
-            console.error('Erro ao buscar pessoa:', error);
-            alert('Ocorreu um erro ao buscar a pessoa. Tente novamente mais tarde.');
+            console.error('Erro:', error);
+            alert("Erro ao adicionar a pessoa.");
         });
-}
-
-function adicionarPessoa() {
-    const nome = document.getElementById('nomePessoa').value;
-    if (!nome) {
-        alert('Por favor, insira um nome');
-        return;
     }
-
-    fetch('/pessoa', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nome: nome }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao adicionar pessoa');
-        }
-        return response.text();
-    })
-    .then(data => {
-        alert(data);
-        document.getElementById('nomePessoa').value = ''; // Limpa o campo
-    })
-    .catch(error => {
-        console.error('Erro ao adicionar pessoa:', error);
-        alert('Ocorreu um erro ao adicionar a pessoa. Tente novamente mais tarde.');
-    });
-}
-
-function atualizarPessoa() {
-    const id = document.getElementById('idPessoaAtualizar').value;
-    const nome = document.getElementById('novoNomePessoa').value;
-    if (!id || !nome) {
-        alert('Por favor, insira um ID e um novo nome');
-        return;
-    }
-
-    fetch(`/pessoa/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nome: nome }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao atualizar pessoa');
-        }
-        return response.text();
-    })
-    .then(data => {
-        alert(data);
-    })
-    .catch(error => {
-        console.error('Erro ao atualizar pessoa:', error);
-        alert('Ocorreu um erro ao atualizar a pessoa. Tente novamente mais tarde.');
-    });
-}
-
-function deletarPessoa() {
-    const id = document.getElementById('idPessoaDeletar').value;
-    if (!id) {
-        alert('Por favor, insira um ID');
-        return;
-    }
-
-    fetch(`/pessoa/${id}`, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao deletar pessoa');
-        }
-        return response.text();
-    })
-    .then(data => {
-        alert(data);
-    })
-    .catch(error => {
-        console.error('Erro ao deletar pessoa:', error);
-        alert('Ocorreu um erro ao deletar a pessoa. Tente novamente mais tarde.');
-    });
-}
-
-function adicionarUsuario() {
-    const nome = document.getElementById('nomeUsuario').value;
-    const email = document.getElementById('emailUsuario').value;
-    if (!nome || !email) {
-        alert('Por favor, insira um nome e um e-mail');
-        return;
-    }
-
-    fetch('/usuario', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nome: nome, email: email }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao adicionar usuário');
-        }
-        return response.text();
-    })
-    .then(data => {
-        alert(data);
-        document.getElementById('nomeUsuario').value = ''; // Limpa o campo
-        document.getElementById('emailUsuario').value = ''; // Limpa o campo
-    })
-    .catch(error => {
-        console.error('Erro ao adicionar usuário:', error);
-        alert('Ocorreu um erro ao adicionar o usuário. Tente novamente mais tarde.');
-    });
+    
 }
