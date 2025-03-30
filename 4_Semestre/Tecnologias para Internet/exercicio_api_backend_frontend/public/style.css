@@ -5,8 +5,8 @@ body {
     margin: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 10px; /* Espaço entre as divs */
-    padding: 10px;
+    gap: 20px; /* Aumentei o espaço entre as divs */
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -25,9 +25,6 @@ body {
 
 /* Posicionamento correto do título */
 .div_principal h1 {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     margin: 0;
     font-size: 24px;
 }
@@ -59,39 +56,30 @@ body {
 
 /* Estilização do Formulário */
 form {
-    margin-top: 40px; /* Para o form não sobrepor o h1 */
+    margin-top: 20px; /* Menos espaço em relação ao h1 */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Aumentei o espaço entre os inputs */
 }
 
 /* Estilização dos Inputs */
 input {
-    padding: 5px;
+    padding: 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: none;
+    border: 2px solid #ccc; /* Adicionando uma borda sutil */
 }
 
-.input_get{
-    width: 300px;
-}
-
-.button_get{
-    width: 20%;
-    height: 100%;
-    text-align: center;
-}
-
-.div_get{
-    display: inline-block;
-    margin-right: 0px;
-    align-items: center;
+/* Ajuste de largura dos inputs */
+.input_get {
+    width: 100%; /* Faz os inputs ocuparem a largura total da div */
+    max-width: 300px; /* Limita a largura máxima */
+    margin-bottom: 10px; /* Para dar um espaçamento entre os inputs */
 }
 
 /* Estilização dos Botões */
 button {
-    padding: 10px;
+    padding: 12px 20px; /* Ajustei para botões maiores */
     font-size: 16px;
     font-weight: bold;
     background-color: white;
@@ -100,8 +88,23 @@ button {
     cursor: pointer;
     border-radius: 5px;
     transition: 0.3s;
+    align-self: flex-start; /* Faz o botão alinhar à esquerda */
 }
 
 button:hover {
     background-color: lightgray;
+}
+
+/* Estilização da Div que envolve Inputs e Botões */
+.div_get {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    align-items: flex-start; /* Alinha todos os elementos à esquerda */
+    gap: 10px; /* Espaço entre os inputs e o botão */
+}
+
+/* Ajustes no botão de tamanho pequeno */
+.button_get {
+    width: auto; /* Ajuste automático do botão */
+    text-align: center;
 }

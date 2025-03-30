@@ -35,12 +35,15 @@
         <form action="">
             <label for="">Digite o ID da pessoa ou usuário para atualizar:</label>
             <div class='div_get'>
-                <input type="search" placeholder="ID Pessoa" class="input_get">
-                <button class="button_get" type="button" onclick="atualizarPessoa()">Atualizar</button>
+                <input type="search" placeholder="ID Pessoa" class="input_get" id = 'IdPessoaAtualizar'>
+                <input type="search" placeholder="Nome Pessoa" class="input_get" id = 'NomePessoaAtualizar'>
+                <button class="button_get" type="button" id = 'BotaoPessoaAtualizar'>Atualizar</button>
             </div>
             <div class='div_get'>
-                <input type="search" placeholder="ID Usuário" class="input_get">
-                <button class="button_get" type="button" onclick="atualizarUsuario()">Atualizar</button>
+                <input type="search" placeholder="ID Usuário" class="input_get" id = 'IdUsuarioAtualizar'>
+                <input type="search" placeholder="Nome Usuário" class="input_get" id = 'NomeUsuarioAtualizar'>
+                <input type="search" placeholder="Email Usuário" class="input_get" id = 'EmailUsuarioAtualizar'>
+                <button class="button_get" type="button" id = 'BotaoUsuarioAtualizar'>Atualizar</button>
             </div>
         </form>
     </div>
@@ -52,14 +55,14 @@
             <label for="">Digite os dados para criar uma nova pessoa:</label>
             <div class='div_get'>
                 <input type="text" placeholder="Nome da Pessoa" class="input_get" id="AdicionarPessoa">
-                <button class="button_get" type="button" onclick="inserirPessoa()">Criar Pessoa</button>
+                <button class="button_get" type="button" id ='AdicionarPessoaBotao'>Criar Pessoa</button>
             </div>
             
             <label for="">Digite os dados para criar um novo usuário:</label>
             <div class='div_get'>
-                <input type="text" placeholder="Nome do Usuário" class="input_get">
-                <input type="email" placeholder="Email do Usuário" class="input_get">
-                <button class="button_get" type="button" onclick="inserirUsuario()">Criar Usuário</button>
+                <input type="text" placeholder="Nome do Usuário" class="input_get" id="AdicionarNomeUsuario">
+                <input type="email" placeholder="Email do Usuário" class="input_get" id = 'AdicionarEmailUsuario'>
+                <button class="button_get" type="button" id ='AdicionarUsuarioBotao'>Criar Usuário</button>
             </div>
         </form>
     </div>
@@ -70,12 +73,12 @@
         <form action="">
             <label for="">Digite o ID da pessoa ou usuário para excluir:</label>
             <div class='div_get'>
-                <input type="search" placeholder="ID Pessoa" class="input_get">
-                <button class="button_get" type="button" onclick="deletarPessoa()">Excluir</button>
+                <input type="search" placeholder="ID Pessoa" class="input_get" id = 'IdPessoaDelete'>
+                <button class="button_get" type="button" id = 'BotaoPessoaDelete'>Excluir</button>
             </div>
             <div class='div_get'>
-                <input type="search" placeholder="ID Usuário" class="input_get">
-                <button class="button_get" type="button" onclick="deletarUsuario()">Excluir</button>
+                <input type="search" placeholder="ID Usuário" class="input_get" id = 'IdUsuarioDelete'>
+                <button class="button_get" type="button" id = 'BotaoUsuarioDelete' >Excluir</button>
             </div>
         </form>
     </div>

@@ -6,13 +6,15 @@ const port = 3000;
 const app = express();
 
 app.use(express.static("public"));
+app.use(express.json());
+
 
 // Conexão com o banco de dados
 const conn = new Pool({
   host: "localhost",
   user: "postgres",
-  //password: "123456", 
-  password: 'admin',
+  password: "123456", 
+  //password: 'admin',
   database: "node",
   port: 5432,
 });
@@ -260,19 +262,37 @@ app.get("/pessoa/:id", async (req, res) => {
 // Rota para adicionar uma pessoa
 app.post("/pessoa", async (req, res) => {
   try {
-    await inserirPessoa(req.body.nome);
-    res.send("Pessoa inserida com sucesso!");
+    console.log("Corpo da requisição:", req.body); // <-- Adicione isso para debugar
+
+    const { nome } = req.body;
+
+    if (!nome || nome.trim() === "") {
+      return res.status(400).json({ message: "Nome é obrigatório" });
+    }
+
+    await inserirPessoa(nome);
+    res.json({ message: "Pessoa inserida com sucesso!" });
   } catch (error) {
     console.error("Erro ao inserir pessoa:", error);
-    res.json({ message: "Erro ao processar a requisição" });
+    res.status(500).json({ message: "Erro ao processar a requisição" });
   }
 });
 
 // Rota para atualizar uma pessoa
 app.put("/pessoa/:id", async (req, res) => {
   try {
+    console.log("Corpo da atualização", req);
+
+    if (!req.params.id || req.params.id.trim() === "") {
+      return res.status(400).json({ message: "ID é obrigatório" });
+    }
+
+    if (!req.body.nome || req.body.nome.trim() === "") {
+      return res.status(400).json({ message: "ID é obrigatório" });
+    }
+
     await atualizarPessoa(req.params.id, req.body.nome);
-    res.send("Pessoa atualizada com sucesso!");
+    res.json({message:"Pessoa atualizada com sucesso!"});
   } catch (error) {
     console.error("Erro ao atualizar pessoa:", error);
     res.json({ message: "Erro ao processar a requisição" });
@@ -283,12 +303,17 @@ app.put("/pessoa/:id", async (req, res) => {
 app.delete("/pessoa/:id", async (req, res) => {
   try {
     await deletarPessoa(req.params.id);
-    res.send("Pessoa deletada com sucesso!");
+    res.json({message: "Pessoa deletada com sucesso!"});
   } catch (error) {
     console.error("Erro ao deletar pessoa:", error);
     res.json({ message: "Erro ao processar a requisição" });
   }
 });
+
+
+
+
+
 
 // Rota para buscar todas as usuarios
 app.get("/usuario", async (req, res) => {
@@ -316,8 +341,21 @@ app.get("/usuario/:id", async (req, res) => {
 
 app.post("/usuario", async (req, res) => {
   try {
-    await inserirUsuario(req.body.nome, req.body.email);
-    res.send("Usuário inserido com sucesso!");
+    console.log("Corpo da requisição:", req.body); // <-- Adicione isso para debugar
+
+    const { nome } = req.body;
+    const { email } = req.body;
+
+    if (!nome || nome.trim() === "") {
+      return res.status(400).json({ message: "Nome é obrigatório" });
+    }
+
+    if (!email || email.trim() === "") {
+      return res.status(400).json({ message: "Email é obrigatório" });
+    }
+
+    await inserirUsuario(nome, email);
+    res.json({message: "Usuário inserido com sucesso!"});
   } catch (error) {
     console.error("Erro ao inserir usuário:", error);
     res.json({ message: "Erro ao processar a requisição" });
@@ -326,8 +364,22 @@ app.post("/usuario", async (req, res) => {
 
 app.put("/usuario/:id", async (req, res) => {
   try {
-    await atualizarUsuario(req.params.id, req.body.nome, req.body.email);
-    res.send("Usuário atualizado com sucesso!");
+    console.log("Corpo da requisição:", req.body);
+
+    if (!req.params.id || req.params.id.trim() === "") {
+      return res.status(400).json({ message: "Id é obrigatório" });
+    }
+
+    if (!req.body.nome || req.body.nome.trim() === "") {
+      return res.status(400).json({ message: "Nome é obrigatório" });
+    }
+
+    if (!req.body.email || req.body.email.trim() === "") {
+      return res.status(400).json({ message: "Email é obrigatório" });
+    }
+
+    await atualizarUsuario(id = req.params.id, nome = req.body.nome, email = req.body.email);
+    res.json( {message:"Usuário atualizado com sucesso!"});
   } catch (error) {
     console.error("Erro ao atualizar usuário:", error);
     res.json({ message: "Erro ao processar a requisição" });
@@ -337,7 +389,7 @@ app.put("/usuario/:id", async (req, res) => {
 app.delete("/usuario/:id", async (req, res) => {
   try {
     await deletarUsuario(req.params.id);
-    res.send("Usuário deletado com sucesso!");
+    res.json({message: "Usuário deletado com sucesso!"});
   } catch (error) {
     console.error("Erro ao deletar usuário:", error);
     res.json({ message: "Erro ao processar a requisição" });
