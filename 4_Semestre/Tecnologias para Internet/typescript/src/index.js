@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Carro_1 = require("./models/Carro");
+var Moto_1 = require("./models/Moto");
+var Loja_1 = require("./services/Loja");
+var loja = new Loja_1.Loja();
+var carro1 = new Carro_1.Carro("Toyota", "Corolla", 2020, 80000, 4);
+var carro2 = new Carro_1.Carro("Nissan", "Kicks", 2022, 90000, 4);
+var moto1 = new Moto_1.Moto("Honda", "CG Titan", 2010, 1200, 150);
+var moto2 = new Moto_1.Moto("Royal Enfield", "Super Meteor", 2025, 3500, 650);
+loja.adicionarVeiculo(carro1);
+loja.adicionarVeiculo(carro2);
+loja.listaEstoque();
+loja.adicionarVeiculo(moto1);
+loja.adicionarVeiculo(moto2);
+loja.listaEstoque();

@@ -1,0 +1,21 @@
+import { Veiculo } from "../models/Veiculo";
+
+export class Loja{
+
+    private estoque: Veiculo[] = [];
+
+    adicionarVeiculo(veiculo: Veiculo): void{
+        this.estoque.push(veiculo);
+        console.log(`\n ${veiculo.marca} ${veiculo.modelo} adicionado ao estoque`)
+    }
+    
+
+    listaEstoque() :void{
+        console.log("\n Estoque da loja");
+        if(this.estoque.length === 0){
+            console.log("Nenhum veículo disponível");
+            return;
+        }
+        this.estoque.forEach((veiculo) => veiculo.exibirDetalhes());
+    }
+}
