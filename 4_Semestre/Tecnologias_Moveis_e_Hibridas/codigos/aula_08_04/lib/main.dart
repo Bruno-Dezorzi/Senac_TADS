@@ -24,7 +24,7 @@ class FormularioPage extends StatefulWidget {
   const FormularioPage({super.key});
 
   @override
-  State<FormularioPageState> createState() => _FormularioPageState();
+  State<FormularioPage> createState() => _FormularioPageState();
 }
 
 class _FormularioPageState extends State<FormularioPage> {
@@ -75,6 +75,87 @@ class _FormularioPageState extends State<FormularioPage> {
               ),
             ],
           ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      //cor de fundo
+      backgroundColor: Colors.lightGreen[100],
+      body: SafeArea(
+        child: Column(
+          children: [
+            // titulo
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              color: Colors.lightBlue[100],
+              child: const Center(
+                child: Text(
+                  'Formulário de TMH',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Insira seu nome: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  TextField(
+                    controller: _nomeController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Insira seu email: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      errorText: _emailInvalido ? 'Email invalido' : null,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30),
+            //criar o botão enviar
+            ElevatedButton(
+              onPressed: _enviarFormulario,
+              child: const Text('Enviar!'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
