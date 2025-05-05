@@ -13,8 +13,8 @@ app.use(express.json());
 const conn = new Pool({
   host: "localhost",
   user: "postgres",
-  //password: "123456", 
-  password: 'admin',
+  password: "123456", 
+  //password: 'admin',
   database: "node",
   port: 5432,
 });

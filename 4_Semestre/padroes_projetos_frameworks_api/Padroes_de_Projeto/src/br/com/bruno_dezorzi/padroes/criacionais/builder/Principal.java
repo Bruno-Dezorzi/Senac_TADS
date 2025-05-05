@@ -10,6 +10,8 @@ public class Principal {
       .comTelhado("Cerâmica")
       .build();
 
+      casaSimples.setParede("CONCRETO");
+
     Casa casaCompleta = new Builder()
       .comParedes("Parede de Tijolo")
       .comJanelas(5)

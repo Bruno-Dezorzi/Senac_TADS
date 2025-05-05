@@ -16,4 +16,9 @@ public class OlaController {
   public String saudacao(@RequestParam String nome) {
     return String.format("Olá %s", nome);
   }
+
+  @GetMapping("/")
+  public String home() {
+    return String.format("Olá Mundo!");
+  }
 }

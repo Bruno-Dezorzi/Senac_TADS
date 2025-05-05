@@ -17,4 +17,9 @@ public abstract class CafeDecorator implements Cafe {
   public String getDescricao() {
     return "Café ";
   }
+
+  @Override
+  public void derrubar(){
+    System.out.println("ME DERRUBARAM AQUI");
+  }
 }

@@ -1,12 +1,13 @@
 package br.com.bruno_dezorzi.padroes.estruturais.proxy;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ProxyBanco implements ServicoBanco {
 
-    private  Banco bancoVerdadeiro = new Banco();
-    private Map<String,double> saldoClientes = new HashMap<>();
-    private Map<String,Boolean> cartaoAtivo = new HashMap<>();
+    private Banco bancoVerdadeiro = new Banco();
+    private final Map<String, Double> saldoClientes = new HashMap<>();
+    private final Map<String, Boolean> cartaoAtivo = new HashMap<>();
 
     public ProxyBanco(){
         saldoClientes.put("João", 100.00);
@@ -15,20 +16,21 @@ public class ProxyBanco implements ServicoBanco {
         cartaoAtivo.put("Maria", false);
     }
 
-
     @Override
-  public void processarPagamento(String cliente, double valor) {
-    if(!cartaoAtivo.get(cliente)){
-        System.out.println("Proxy: Transação negada! Cartão de " + cliente + " está inativo");
+    public void processarPagamento(String cliente, double valor) {
+        if (!cartaoAtivo.get(cliente)) {
+            System.out.println("Proxy: Transação negada! Cartão de " + cliente + " está inativo");
+            return;
+        }
+
+        double saldo = saldoClientes.get(cliente);
+        if (saldo < valor) {
+            System.out.println("Proxy: Transação negada! Saldo insuficiente para " + cliente);
+            return;
+        }
+
+        bancoVerdadeiro.processarPagamento(cliente, valor);
+        saldoClientes.put(cliente, saldo - valor);
+        System.out.println("Proxy: Pagamento de R$" + valor + " processado para " + cliente);
     }
-
-    double saldo = saldoClientes.get(cliente);
-    if(saldo < valor){
-        System.out.println("Proxy: Transação negada! Saldo insuficiente para" + cliente );
-    }
-
-    bancoVerdadeiro.processarPagamento(cliente, valor);
-    saldoClientes.put(cliente,saldo - valor);
-  }
-
 }

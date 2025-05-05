@@ -15,4 +15,9 @@ public class CafeSimples extends CafeDecorator {
   public String getDescricao() {
     return super.getDescricao() + "simples";
   }
+
+  @Override
+  public void derrubar(){
+    super.derrubar();
+  }
 }
