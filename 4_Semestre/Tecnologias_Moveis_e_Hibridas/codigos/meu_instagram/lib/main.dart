@@ -1,23 +1,32 @@
+//imports pacote material (importando os
+//widgets básicos de interface)
 import 'package:flutter/material.dart';
 
+//criar função principal
 void main() {
-  runApp(Myapp());
+  runApp(MyApp()); //executa o aplicativo myapp
 }
 
-class Myapp extends StatelessWidget {
+//criar o myapp
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Layouts",
-      debugShowCheckedModeBanner: false,
+      //envolve todo com uma estrutura
+      title: 'Flutter Layouts', //titulo da app
+      debugShowCheckedModeBanner: false, //remover a faixa de debug
       home: Scaffold(
+        //Define a estrutura base do flutter
         appBar: AppBar(
-          title: const Text('Meu Instagram'),
-          backgroundColor: Colors.blue,
+          title: const Text('Meu Instagram'), //define titulo da barra
+          backgroundColor: Colors.blue, //colocamos uma cor
         ),
         body: SingleChildScrollView(
+          //permitir a rolagem da tela na vertical
           child: Column(
+            //criar um coluna para empilhar os widgets verticalmente
             children: const [
+              //criar uma lista de filhos
               ImageCard(
                 imagePath: 'assets/lands_01.jpg',
                 description: 'QUE SHOW DA XUXA É ESSE?',
@@ -35,11 +44,63 @@ class Myapp extends StatelessWidget {
   }
 }
 
+//criar um widget personalizado para upar as imagens
 class ImageCard extends StatefulWidget {
-  final String imagePath;
-  final String description;
+  final String imagePath; //recebe o caminho da img
+  final String description; //recebe a descrição da img
 
-  const ImageCard({required this.imagePath, required this.description});
+  const ImageCard({
+    required this.imagePath, //obrigando
+    //o user a passa um caminho
+    required this.description,
+  });
+  //criar o estado do widget
+  State<ImageCard> createState() => _ImageCardState();
+}
 
-  State<ImageCard> createState() => createState();
+class _ImageCardState extends State<ImageCard> {
+  bool isLiked = false; //indica se a imagem foi curtida
+  int likeCount = 0; // quantidade de curtidas
+
+  void toggleLike() {
+    setState(() {
+      isLiked = !isLiked;
+      likeCount += isLiked ? 1 : -1;
+    });
+
+    @override
+    Widget build(BuildContext context) {
+      final screenWidth = MediaQuery.of(context).size.width;
+      final screenHeight = MediaQuery.of(context).size.height;
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                widget.imagePath,
+                width: screenWidth,
+                height: screenHeight,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                bottom: 10,
+                left: 10,
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.black54,
+                  width: screenWidth * 0.9,
+                  child: Text(
+                    widget.description,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+  }
 }
