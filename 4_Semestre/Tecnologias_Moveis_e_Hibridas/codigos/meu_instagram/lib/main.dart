@@ -9,6 +9,8 @@ void main() {
 
 //criar o myapp
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,14 +30,17 @@ class MyApp extends StatelessWidget {
             children: const [
               //criar uma lista de filhos
               ImageCard(
-                imagePath: 'assets/lands_01.jpg',
-                description: 'QUE SHOW DA XUXA É ESSE?',
+                imagePath: 'assets/desert.jpg',
+                description: 'Um deserto muito louco',
               ),
               ImageCard(
-                imagePath: 'assets/lands_02.jpg',
-                description: 'COMO VOCÊ É BURRO',
+                imagePath: 'assets/alps.jpg',
+                description: 'Um morro bem legal',
               ),
-              ImageCard(imagePath: 'assets/lands_03.jpg', description: 'NANI?'),
+              ImageCard(
+                imagePath: 'assets/beach.jpg',
+                description: 'Uma praia deserta',
+              ),
             ],
           ),
         ),
@@ -50,57 +55,83 @@ class ImageCard extends StatefulWidget {
   final String description; //recebe a descrição da img
 
   const ImageCard({
+    super.key,
     required this.imagePath, //obrigando
     //o user a passa um caminho
     required this.description,
   });
   //criar o estado do widget
+  @override
   State<ImageCard> createState() => _ImageCardState();
 }
 
 class _ImageCardState extends State<ImageCard> {
-  bool isLiked = false; //indica se a imagem foi curtida
+  bool isLiked = false; //indica se a image foi curtida
   int likeCount = 0; // quantidade de curtidas
 
+  //criar a função para contabilizar os likes (estados de curtir)
   void toggleLike() {
     setState(() {
-      isLiked = !isLiked;
-      likeCount += isLiked ? 1 : -1;
+      isLiked = !isLiked; // inverte o valor
+      likeCount +=
+          isLiked ? 1 : -1; // incrementa ou decrementa o valor da curtida
     });
+  }
 
-    @override
-    Widget build(BuildContext context) {
-      final screenWidth = MediaQuery.of(context).size.width;
-      final screenHeight = MediaQuery.of(context).size.height;
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth =
+        MediaQuery.of(context).size.width; //pega a largura da tela
 
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              Image.asset(
-                widget.imagePath,
-                width: screenWidth,
-                height: screenHeight,
-                fit: BoxFit.cover,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Stack(
+          //sobrepor wigets uns sobre os otros
+          children: [
+            Image.asset(
+              widget.imagePath, //pega o caminho da imagem
+              width: screenWidth, //pega a largura do celular
+              height: 250,
+              fit: BoxFit.cover, //preencher a imagem sem distorcer
+            ),
+            Positioned(
+              //posiciona (criar um conteiner para a descrição da imagem encima da imagem)
+              bottom: 10,
+              left: 10,
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.black54, //efeito do fundo semitransparente
+                width: screenWidth * 0.9,
+                child: Text(
+                  widget.description,
+                  style: const TextStyle(color: Colors.white, fontSize: 18),
+                ),
               ),
-              Positioned(
-                bottom: 10,
-                left: 10,
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.black54,
-                  width: screenWidth * 0.9,
-                  child: Text(
-                    widget.description,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
-                  ),
+            ),
+          ],
+        ),
+        Padding(
+          //espaçamento dos botões
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+          child: Row(
+            //cria uma linha de icones: curtida, comentario e compartilhar
+            children: [
+              GestureDetector(
+                //detectar o toque no curtir
+                onTap: toggleLike, //chamar a funções ao ser tocado
+                child: Icon(
+                  isLiked ? Icons.favorite : Icons.favorite_border,
+                  color:
+                      isLiked
+                          ? Colors.red
+                          : Colors.black, //cor conforme o estado
                 ),
               ),
             ],
           ),
-        ],
-      );
-    }
+        ),
+      ],
+    );
   }
 }
