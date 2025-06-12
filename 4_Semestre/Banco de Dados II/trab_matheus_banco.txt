@@ -1,0 +1,173 @@
+1. Qual é a principal finalidade de um índice em um banco de dados?
+A) Aumentar o espaço de armazenamento
+B) Reduzir a necessidade de backups
+-> C) Acelerar o acesso a tuplas em uma relação
+D) Eliminar dados duplicados
+E) Substituir a chave primária
+
+
+2. Sobre os tipos de índices, assinale a alternativa correta:
+A) Índices primários só podem ser criados sobre atributos não únicos
+B) Um índice secundário determina a localização física dos registros
+C) Um índice denso possui uma entrada para cada bloco de disco
+-> D) Um índice esparso possui entradas apenas para alguns registros
+E) Um índice primário pode ser criado em múltiplas colunas, desde que não sejam chaves
+
+
+3. Qual das alternativas apresenta corretamente a sintaxe básica para criar um índice em PostgreSQL?
+A) INSERT INDEX nome ON tabela(coluna);
+B) CREATE TABLE INDEX nome ON tabela(coluna);
+-> C) CREATE INDEX nome ON tabela(coluna);
+D) MAKE INDEX nome FOR tabela(coluna);
+E) INDEX CREATE nome ON tabela(coluna);
+
+
+
+4. Quando o PostgreSQL usará preferencialmente um índice do tipo Hash?
+A) Quando há buscas com LIKE
+B) Quando há buscas com > ou <
+-> C) Quando há igualdade de valores (=)
+D) Quando há buscas por intervalos
+E) Quando há junções (JOINs) com OUTER
+
+
+5. Sobre os métodos de índice no PostgreSQL, é incorreto afirmar:
+A) O método Btree é o padrão e suporta comparações de igualdade e intervalos
+B) O método Hash é recomendado para consultas com igualdade
+C) O método GiST permite operadores para dados geométricos
+D) O método GIN é utilizado para pesquisas em texto completo
+-> E) O método Hash é amplamente recomendado para qualquer uso
+
+
+
+Crie uma tabela chamada clientes com os campos id (serial, chave primária), nome (text), email (text).
+
+CREATE TABLE clientes (
+    id SERIAL PRIMARY KEY,
+    nome TEXT,
+    email TEXT
+);
+
+
+7. Crie um índice chamado idx_nome para a tabela clientes no campo nome.
+
+CREATE INDEX idx_nome ON clientes(nome);
+
+8. Insira 100.000 registros fictícios na tabela clientes, com nomes aleatórios.
+
+INSERT INTO clientes (nome, email)
+SELECT 
+    md5(random()::text), 
+    md5(random()::text) || '@email.com'
+FROM generate_series(1, 100000);
+
+
+9. Use EXPLAIN ANALYZE para medir o tempo de uma busca pelo nome com e sem índice.
+
+DROP INDEX IF EXISTS idx_nome;
+
+EXPLAIN ANALYZE
+SELECT * FROM clientes WHERE nome = '6e31df850a59be0f8a2e9c1eb1d15f1e';
+
+//Planning Time: 0.633 ms
+//Execution Time: 6.715 ms
+
+CREATE INDEX idx_nome ON clientes(nome);
+
+EXPLAIN ANALYZE
+SELECT * FROM clientes WHERE nome = '6e31df850a59be0f8a2e9c1eb1d15f1e';
+
+//Planning Time: 0.946 ms
+//Execution Time: 0.047 ms
+
+
+10. Crie uma nova tabela chamada vendas com os campos id, data_venda, valor, cliente_id.
+
+CREATE TABLE vendas (
+    id SERIAL PRIMARY KEY,
+    data_venda DATE,
+    valor NUMERIC(10,2),
+    cliente_id INTEGER REFERENCES clientes(id)
+);
+
+
+11. Crie um índice composto para data_venda e valor em vendas.
+
+CREATE INDEX idx_data_valor ON vendas(data_venda, valor);
+
+
+12. Crie um índice baseado em expressão que indexe o nome em letras maiúsculas da tabela clientes.
+
+CREATE INDEX idx_nome_upper ON clientes(UPPER(nome));
+
+
+13. Crie uma view materializada com dados de vendas e crie um índice nela.
+
+CREATE MATERIALIZED VIEW vendas_resumo AS
+SELECT 
+    cliente_id, 
+    COUNT(*) AS total_vendas, 
+    SUM(valor) AS total_valor
+FROM vendas
+GROUP BY cliente_id;
+
+-- Índice na view materializada
+CREATE INDEX idx_resumo_cliente ON vendas_resumo(cliente_id);
+
+
+14. Verifique o plano de execução de uma busca por email e avalie se um índice ajudaria.
+
+EXPLAIN ANALYZE
+SELECT * FROM clientes WHERE email = '218686ac04aea3159fe20be4975f8917@email.com';
+
+CREATE INDEX idx_email ON clientes(email);
+
+Sem indice
+Planning Time: 0.091 ms
+Execution Time: 9.105 ms
+
+Com indice
+Planning Time: 0.974 ms
+Execution Time: 0.043 ms
+
+Sim, um índice é necessário
+
+15. Replique o experimento da apresentação: crie as tabelas alunos e alunos2, insira 100.000 registros em ambas e compare o tempo de execução com e sem índice no campo matricula.
+
+
+CREATE TABLE alunos (
+    id SERIAL PRIMARY KEY,
+    nome TEXT,
+    matricula TEXT
+);
+
+CREATE TABLE alunos2 (
+    id SERIAL PRIMARY KEY,
+    nome TEXT,
+    matricula TEXT
+);
+
+
+INSERT INTO alunos (nome, matricula)
+SELECT md5(random()::text), md5(random()::text)
+FROM generate_series(1, 100000);
+
+INSERT INTO alunos2 (nome, matricula)
+SELECT md5(random()::text), md5(random()::text)
+FROM generate_series(1, 100000);
+
+
+CREATE INDEX idx_matricula ON alunos2(matricula);
+
+
+EXPLAIN ANALYZE
+SELECT * FROM alunos WHERE matricula = 'alguma_matricula';  -- SEM ÍNDICE
+
+Planning Time: 0.101 ms
+Execution Time: 12.315 ms
+
+
+EXPLAIN ANALYZE
+SELECT * FROM alunos2 WHERE matricula = 'alguma_matricula'; -- COM ÍNDICE
+Planning Time: 1.070 ms
+Execution Time: 0.073 ms
